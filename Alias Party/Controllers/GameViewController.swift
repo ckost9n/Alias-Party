@@ -8,14 +8,18 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+    var timer = Timer()
+    var secondsRemaining = 10
 
     @IBOutlet var timerLsbel: UILabel!
     @IBOutlet var actionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        timerLsbel.text = String(secondsRemaining)
+        createTimer()
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
@@ -27,14 +31,30 @@ class GameViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: UIButton) {
     }
     
-    /*
-    // MARK: - Navigation
+    
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension GameViewController {
+    
+    func createTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
-    */
+
+    @objc func updateTimer() {
+        
+        DispatchQueue.main.async {
+            self.timerLsbel.text = String(self.secondsRemaining)
+        }
+        
+        if secondsRemaining > 0 {
+            secondsRemaining -= 1
+            timerLsbel.text = String(secondsRemaining)
+        } else {
+//            go to VC -> ResultViewController
+//            dont have storyboard ID
+        }
+        
+        
+    }
 
 }
