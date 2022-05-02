@@ -196,7 +196,7 @@
                     <navigationItem key="navigationItem" title="Команда" id="nbN-CN-DlN"/>
                     <connections>
                         <outlet property="actionLabel" destination="Pcp-Nq-s1a" id="gdg-Ls-eyi"/>
-                        <outlet property="timerLsbel" destination="xOG-Ig-E0n" id="ee0-FS-A2T"/>
+                        <outlet property="timerLabel" destination="xOG-Ig-E0n" id="ee0-FS-A2T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r42-V3-QR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -268,9 +268,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шутка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-mS-xXL">
-                                <rect key="frame" x="147.5" y="426.5" width="119" height="43.5"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шутка" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-mS-xXL">
+                                <rect key="frame" x="20" y="434.5" width="374" height="27.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -282,8 +282,9 @@
                             <constraint firstItem="kwn-mS-xXL" firstAttribute="centerY" secondItem="3yT-Rl-nvG" secondAttribute="centerY" id="K3D-oS-0yj"/>
                             <constraint firstItem="qlj-A5-MtT" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="KTo-32-zWV"/>
                             <constraint firstItem="pms-He-9TO" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="QGx-BT-5Ag"/>
-                            <constraint firstItem="kwn-mS-xXL" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="aps-O8-vkU"/>
                             <constraint firstItem="Ofr-BW-SfM" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="k7h-VW-3eV"/>
+                            <constraint firstItem="CCe-u1-1GY" firstAttribute="trailing" secondItem="kwn-mS-xXL" secondAttribute="trailing" constant="20" id="kme-uv-5iR"/>
+                            <constraint firstItem="kwn-mS-xXL" firstAttribute="leading" secondItem="CCe-u1-1GY" secondAttribute="leading" constant="20" id="s2V-R8-PQO"/>
                             <constraint firstItem="qlj-A5-MtT" firstAttribute="top" secondItem="CCe-u1-1GY" secondAttribute="top" constant="30" id="xTS-RJ-9pI"/>
                             <constraint firstItem="pms-He-9TO" firstAttribute="top" secondItem="qlj-A5-MtT" secondAttribute="bottom" constant="20" id="xTl-Fv-IEa"/>
                         </constraints>

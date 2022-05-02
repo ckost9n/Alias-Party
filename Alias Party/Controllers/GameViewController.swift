@@ -9,7 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    @IBOutlet var timerLsbel: UILabel!
+    @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
     
     override func viewDidLoad() {
