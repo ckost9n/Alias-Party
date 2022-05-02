@@ -10,7 +10,6 @@ import UIKit
 class ResultViewController: UIViewController, JokeManagerDelegate {
     
     var jokeManager = JokeManager()
-    var count = 0
 
     @IBOutlet var checkLabel: UILabel!
     @IBOutlet var jokeLabel: UILabel!
