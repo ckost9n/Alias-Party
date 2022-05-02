@@ -37,6 +37,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Продолжить">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="continuePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1n8-Cx-BGU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZY-3I-Jjf">
                                         <rect key="frame" x="14" y="55" width="159.5" height="50"/>
@@ -47,6 +50,7 @@
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="newGamePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q4h-oF-4y9"/>
                                             <segue destination="AfU-Mh-m5X" kind="show" id="pcW-02-EhB"/>
                                         </connections>
                                     </button>
@@ -59,6 +63,7 @@
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="rulesPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GUc-la-fqm"/>
                                             <segue destination="MNB-Ly-uHJ" kind="show" id="4JC-9v-IFg"/>
                                         </connections>
                                     </button>
@@ -89,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="2Qo-aF-eVp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="2Qo-aF-eVp">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Qo-aF-eVp" id="tax-ch-4JI">
@@ -131,6 +136,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Отгадали">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="rightButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="39M-u8-PHt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXl-NJ-YDB">
                                         <rect key="frame" x="194.5" y="0.0" width="184.5" height="47"/>
@@ -140,6 +148,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Не отгадали">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="wrongButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="s83-eJ-mnG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -152,6 +163,7 @@
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="resetButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="X2C-qc-gTx"/>
                                     <segue destination="JZT-i7-8nL" kind="show" id="peo-qI-rWH"/>
                                 </connections>
                             </button>
@@ -182,6 +194,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Команда" id="nbN-CN-DlN"/>
+                    <connections>
+                        <outlet property="actionLabel" destination="Pcp-Nq-s1a" id="gdg-Ls-eyi"/>
+                        <outlet property="timerLsbel" destination="xOG-Ig-E0n" id="ee0-FS-A2T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r42-V3-QR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +238,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Продолжить">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="continueButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="Clc-0x-ncx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CI-GO-XXU">
                                         <rect key="frame" x="43" y="55" width="159.5" height="50"/>
@@ -231,6 +250,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Новая игра">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="newGameButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="dzg-Mn-3bk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mf8-ke-qLK">
                                         <rect key="frame" x="0.0" y="110" width="245" height="50"/>
@@ -240,6 +262,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="На главный экран">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="goMainViewButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="AK5-Ca-ZoS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -264,6 +289,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dwk-iK-Prq"/>
+                    <connections>
+                        <outlet property="checkLabel" destination="pms-He-9TO" id="ZIt-OI-R4W"/>
+                        <outlet property="jokeLabel" destination="kwn-mS-xXL" id="t5g-S9-Xf8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BR5-En-S8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

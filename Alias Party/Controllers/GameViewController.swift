@@ -9,13 +9,24 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet var timerLsbel: UILabel!
+    @IBOutlet var actionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func rightButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func wrongButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 

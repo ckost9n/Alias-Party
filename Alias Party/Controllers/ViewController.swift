@@ -14,6 +14,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func continuePressed(_ sender: UIButton) {
+        print(#function)
+    }
+    
+    @IBAction func newGamePressed(_ sender: UIButton) {
+        print(#function)
+    }
+    
+    @IBAction func rulesPressed(_ sender: UIButton) {
+        print(#function)
+    }
+    
 }
 

@@ -9,13 +9,24 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet var checkLabel: UILabel!
+    @IBOutlet var jokeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func continueButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func newGameButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func goMainViewButtonPressed(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
