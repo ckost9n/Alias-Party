@@ -11,6 +11,8 @@ class GameViewController: UIViewController {
 
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
+    @IBOutlet var wordLabel: UILabel!
+    @IBOutlet var startButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,10 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func startButtonAction(_ sender: UIButton) {
     }
     
     /*
