@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timerLsbel.text = String(secondsRemaining)
+        timerLabel.text = String(secondsRemaining)
         createTimer()
     }
     
@@ -36,6 +36,10 @@ class GameViewController: UIViewController {
     
     @IBAction func startButtonAction(_ sender: UIButton) {
     }
+
+}
+
+extension GameViewController {
     
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -44,12 +48,12 @@ class GameViewController: UIViewController {
     @objc func updateTimer() {
         
         DispatchQueue.main.async {
-            self.timerLsbel.text = String(self.secondsRemaining)
+            self.timerLabel.text = String(self.secondsRemaining)
         }
         
         if secondsRemaining > 0 {
             secondsRemaining -= 1
-            timerLsbel.text = String(secondsRemaining)
+            timerLabel.text = String(secondsRemaining)
         } else {
 //            go to VC -> ResultViewController
 //            dont have storyboard ID
@@ -58,5 +62,4 @@ class GameViewController: UIViewController {
         
         
     }
-
 }
