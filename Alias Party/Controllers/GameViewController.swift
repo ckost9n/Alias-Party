@@ -10,7 +10,7 @@ import UIKit
 class GameViewController: UIViewController {
     
     var timer = Timer()
-    var secondsRemaining = 10
+    var secondsRemaining = 60
 
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
