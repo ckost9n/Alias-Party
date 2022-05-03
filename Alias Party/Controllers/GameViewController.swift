@@ -20,8 +20,14 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        
         timerLabel.text = String(secondsRemaining)
         createTimer()
+    }
+    
+    private func setupViews() {
+        wordLabel.numberOfLines = 0
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
