@@ -19,6 +19,7 @@
 		3CC7EE8528200A04007D97FB /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7EE8428200A04007D97FB /* ResultViewController.swift */; };
 		3CC7EE8828200C2B007D97FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7EE8728200C2B007D97FB /* Constants.swift */; };
 		3CC7EE8A2820146A007D97FB /* actionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7EE892820146A007D97FB /* actionModel.swift */; };
+		8134F8A828215253003669A4 /* jokeDrum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8134F8A728215253003669A4 /* jokeDrum.mp3 */; };
 		81A27C3F28201B9A00F4F6BE /* JokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A27C3E28201B9A00F4F6BE /* JokeData.swift */; };
 		81A27C4128201BB700F4F6BE /* JokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A27C4028201BB700F4F6BE /* JokeManager.swift */; };
 		81A27C4328201BE400F4F6BE /* JokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A27C4228201BE400F4F6BE /* JokeModel.swift */; };
@@ -39,6 +40,7 @@
 		3CC7EE8428200A04007D97FB /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		3CC7EE8728200C2B007D97FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3CC7EE892820146A007D97FB /* actionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionModel.swift; sourceTree = "<group>"; };
+		8134F8A728215253003669A4 /* jokeDrum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = jokeDrum.mp3; path = ../../../Downloads/jokeDrum.mp3; sourceTree = "<group>"; };
 		81A27C3E28201B9A00F4F6BE /* JokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeData.swift; sourceTree = "<group>"; };
 		81A27C4028201BB700F4F6BE /* JokeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeManager.swift; sourceTree = "<group>"; };
 		81A27C4228201BE400F4F6BE /* JokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeModel.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				3CC7EE70281FFF69007D97FB /* Assets.xcassets */,
 				3CC7EE72281FFF69007D97FB /* LaunchScreen.storyboard */,
 				3CC7EE75281FFF69007D97FB /* Info.plist */,
+				8134F8A728215253003669A4 /* jokeDrum.mp3 */,
 			);
 			path = "Alias Party";
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				3CC7EE74281FFF69007D97FB /* LaunchScreen.storyboard in Resources */,
 				3CC7EE71281FFF69007D97FB /* Assets.xcassets in Resources */,
 				3CC7EE6F281FFF65007D97FB /* Main.storyboard in Resources */,
+				8134F8A828215253003669A4 /* jokeDrum.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
