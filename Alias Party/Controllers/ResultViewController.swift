@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, JokeManagerDelegate {
+    
+    var jokeManager = JokeManager()
 
     @IBOutlet var checkLabel: UILabel!
     @IBOutlet var jokeLabel: UILabel!
@@ -15,10 +17,12 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        jokeManager.delegate = self
+        jokeManager.getJoke()
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func newGameButtonPressed(_ sender: UIButton) {
@@ -27,14 +31,16 @@ class ResultViewController: UIViewController {
     @IBAction func goMainViewButtonPressed(_ sender: Any) {
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func didUpdateJoke(joke: JokeModel, punchline: JokeModel) {
+        
+        DispatchQueue.main.async {
+            self.jokeLabel.text = joke.setup
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+                self.jokeLabel.text! += "\n" + punchline.punchline
+                
+            }
+            
+        }
     }
-    */
-
+  
 }

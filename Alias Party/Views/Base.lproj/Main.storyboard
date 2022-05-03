@@ -179,31 +179,56 @@
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGS-KF-aol">
+                                <rect key="frame" x="156.5" y="423.5" width="101.5" height="49"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="45"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yp3-Yq-2LX">
+                                <rect key="frame" x="150.5" y="641" width="113" height="47"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Начали">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="a9f-ka-bcP"/>
+                                    <action selector="startButtonAction:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="L6n-hE-KQw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9pV-ks-l3I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pcp-Nq-s1a" firstAttribute="top" secondItem="xOG-Ig-E0n" secondAttribute="bottom" constant="20" id="11g-0l-SpP"/>
+                            <constraint firstItem="FGS-KF-aol" firstAttribute="centerY" secondItem="bGl-wW-rwZ" secondAttribute="centerY" id="8P1-ma-6w1"/>
                             <constraint firstItem="udq-Em-zQh" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="BBN-CH-58C"/>
                             <constraint firstItem="9pV-ks-l3I" firstAttribute="bottom" secondItem="wvN-jZ-DYH" secondAttribute="bottom" constant="30" id="FhO-dF-r1q"/>
                             <constraint firstItem="xOG-Ig-E0n" firstAttribute="top" secondItem="9pV-ks-l3I" secondAttribute="top" constant="20" id="NxE-SO-vu5"/>
+                            <constraint firstItem="FGS-KF-aol" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="PqZ-q6-gUc"/>
                             <constraint firstItem="Pcp-Nq-s1a" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="oTU-Ox-paH"/>
+                            <constraint firstItem="udq-Em-zQh" firstAttribute="top" secondItem="yp3-Yq-2LX" secondAttribute="bottom" constant="30" id="q8N-QD-80f"/>
                             <constraint firstItem="xOG-Ig-E0n" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="sFS-C0-bjj"/>
                             <constraint firstItem="wvN-jZ-DYH" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="u9u-2m-LDV"/>
                             <constraint firstItem="wvN-jZ-DYH" firstAttribute="top" secondItem="udq-Em-zQh" secondAttribute="bottom" constant="20" id="ur5-H6-Fiu"/>
+                            <constraint firstItem="yp3-Yq-2LX" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="xqm-P3-SiC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Команда" id="nbN-CN-DlN"/>
                     <connections>
                         <outlet property="actionLabel" destination="Pcp-Nq-s1a" id="gdg-Ls-eyi"/>
-                        <outlet property="timerLsbel" destination="xOG-Ig-E0n" id="ee0-FS-A2T"/>
+                        <outlet property="startButton" destination="yp3-Yq-2LX" id="nAk-M6-NaR"/>
+                        <outlet property="timerLabel" destination="xOG-Ig-E0n" id="ee0-FS-A2T"/>
+                        <outlet property="wordLabel" destination="FGS-KF-aol" id="a7y-6s-yhG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r42-V3-QR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2739" y="82"/>
         </scene>
-        <!--Result View Controller-->
+        <!--Команада-->
         <scene sceneID="feN-pg-TYY">
             <objects>
                 <viewController id="JZT-i7-8nL" customClass="ResultViewController" customModule="Alias_Party" customModuleProvider="target" sceneMemberID="viewController">
@@ -268,9 +293,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шутка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-mS-xXL">
-                                <rect key="frame" x="147.5" y="426.5" width="119" height="43.5"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шутка" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-mS-xXL">
+                                <rect key="frame" x="20" y="434.5" width="374" height="27.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -282,13 +307,14 @@
                             <constraint firstItem="kwn-mS-xXL" firstAttribute="centerY" secondItem="3yT-Rl-nvG" secondAttribute="centerY" id="K3D-oS-0yj"/>
                             <constraint firstItem="qlj-A5-MtT" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="KTo-32-zWV"/>
                             <constraint firstItem="pms-He-9TO" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="QGx-BT-5Ag"/>
-                            <constraint firstItem="kwn-mS-xXL" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="aps-O8-vkU"/>
                             <constraint firstItem="Ofr-BW-SfM" firstAttribute="centerX" secondItem="3yT-Rl-nvG" secondAttribute="centerX" id="k7h-VW-3eV"/>
+                            <constraint firstItem="CCe-u1-1GY" firstAttribute="trailing" secondItem="kwn-mS-xXL" secondAttribute="trailing" constant="20" id="kme-uv-5iR"/>
+                            <constraint firstItem="kwn-mS-xXL" firstAttribute="leading" secondItem="CCe-u1-1GY" secondAttribute="leading" constant="20" id="s2V-R8-PQO"/>
                             <constraint firstItem="qlj-A5-MtT" firstAttribute="top" secondItem="CCe-u1-1GY" secondAttribute="top" constant="30" id="xTS-RJ-9pI"/>
                             <constraint firstItem="pms-He-9TO" firstAttribute="top" secondItem="qlj-A5-MtT" secondAttribute="bottom" constant="20" id="xTl-Fv-IEa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Dwk-iK-Prq"/>
+                    <navigationItem key="navigationItem" title="Команада" id="Dwk-iK-Prq"/>
                     <connections>
                         <outlet property="checkLabel" destination="pms-He-9TO" id="ZIt-OI-R4W"/>
                         <outlet property="jokeLabel" destination="kwn-mS-xXL" id="t5g-S9-Xf8"/>

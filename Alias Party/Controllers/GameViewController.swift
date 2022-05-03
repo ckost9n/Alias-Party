@@ -12,8 +12,10 @@ class GameViewController: UIViewController {
     var timer = Timer()
     var secondsRemaining = 10
 
-    @IBOutlet var timerLsbel: UILabel!
+    @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
+    @IBOutlet var wordLabel: UILabel!
+    @IBOutlet var startButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +34,8 @@ class GameViewController: UIViewController {
     }
     
     
-}
-
-extension GameViewController {
+    @IBAction func startButtonAction(_ sender: UIButton) {
+    }
     
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
