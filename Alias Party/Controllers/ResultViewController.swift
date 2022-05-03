@@ -36,8 +36,6 @@ class ResultViewController: UIViewController, JokeManagerDelegate {
     
     func didUpdateJoke(joke: JokeModel, punchline: JokeModel) {
         
-      
-        
         DispatchQueue.main.async {
         
             self.jokeLabel.text = joke.setup
