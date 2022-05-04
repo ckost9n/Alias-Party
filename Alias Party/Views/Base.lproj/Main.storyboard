@@ -180,7 +180,6 @@
                                 <state key="normal" title="Сброс" backgroundImage="redBtnWGF"/>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="X2C-qc-gTx"/>
-                                    <segue destination="JZT-i7-8nL" kind="show" id="peo-qI-rWH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Таймер" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOG-Ig-E0n">
@@ -244,6 +243,7 @@
                         <outlet property="startButton" destination="yp3-Yq-2LX" id="nAk-M6-NaR"/>
                         <outlet property="timerLabel" destination="xOG-Ig-E0n" id="ee0-FS-A2T"/>
                         <outlet property="wordLabel" destination="FGS-KF-aol" id="a7y-6s-yhG"/>
+                        <segue destination="JZT-i7-8nL" kind="show" identifier="goToScore" id="JGm-Vg-BFR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r42-V3-QR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
