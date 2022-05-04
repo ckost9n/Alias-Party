@@ -9,6 +9,10 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    var some = ActionList()
+    
+    
+    
     var timer = Timer()
     var secondsRemaining = 60
 
@@ -19,8 +23,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupViews()
+
+        actionLabel.isHidden = true
         
         timerLabel.text = String(secondsRemaining)
         
@@ -43,15 +47,42 @@ class GameViewController: UIViewController {
     
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        
+        if some.actions.isEmpty {
+            actionLabel.isHidden = true
+        } else {
+            
+            actionLabel.text = some.actions[Int.random(in: 0..<some.actions.count)]
+            let startButtonPressedCount = Int.random(in: 0..<some.actions.count)
+            
+            if let indexOfAction = some.actions.firstIndex(of: actionLabel.text!) {
+                print(startButtonPressedCount)
+                print(indexOfAction)
+                print(some.actions.count)
+                
+                some.actions.remove(at: indexOfAction)
+                
+                if startButtonPressedCount == indexOfAction {
+                    actionLabel.isHidden = false
+                } else {
+                    actionLabel.isHidden = true
+                }
+            }
+        }
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.alpha = 0
     }
-
 }
+
+
 
 extension GameViewController {
     
+    func createTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }   
+
     @objc func updateTimer() {
         
         DispatchQueue.main.async {
@@ -61,6 +92,11 @@ extension GameViewController {
         if secondsRemaining > 0 {
             secondsRemaining -= 1
             timerLabel.text = String(secondsRemaining)
+        } else {
+            //            go to VC -> ResultViewController
+            //            dont have storyboard ID
+            //            comment
+
         }
     }
 }
