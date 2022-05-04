@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BA611522821CC7E003FC4FC /* RulesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA611512821CC7D003FC4FC /* RulesData.swift */; };
 		3CB0876E28215312009028C5 /* jokeDrum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3CB0876D28215312009028C5 /* jokeDrum.mp3 */; };
 		3CC7EE68281FFF65007D97FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7EE67281FFF65007D97FB /* AppDelegate.swift */; };
 		3CC7EE6A281FFF65007D97FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7EE69281FFF65007D97FB /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BA611512821CC7D003FC4FC /* RulesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RulesData.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		3CB0876D28215312009028C5 /* jokeDrum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jokeDrum.mp3; sourceTree = "<group>"; };
 		3CC7EE64281FFF65007D97FB /* Alias Party.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alias Party.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC7EE67281FFF65007D97FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				81A27C3E28201B9A00F4F6BE /* JokeData.swift */,
 				81A27C4028201BB700F4F6BE /* JokeManager.swift */,
 				81A27C4228201BE400F4F6BE /* JokeModel.swift */,
+				1BA611512821CC7D003FC4FC /* RulesData.swift */,
 				8134F8AB2821927E003669A4 /* ActionsList.swift */,
 			);
 			path = Models;
@@ -215,6 +218,7 @@
 				3CC7EE7F28200912007D97FB /* RulesViewController.swift in Sources */,
 				81A27C4328201BE400F4F6BE /* JokeModel.swift in Sources */,
 				3CC7EE83282009EE007D97FB /* GameViewController.swift in Sources */,
+				1BA611522821CC7E003FC4FC /* RulesData.swift in Sources */,
 				3CC7EE6A281FFF65007D97FB /* SceneDelegate.swift in Sources */,
 				3CC7EE8828200C2B007D97FB /* Constants.swift in Sources */,
 			);
