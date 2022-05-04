@@ -14,8 +14,8 @@ class GameViewController: UIViewController {
     
     
     var timer = Timer()
-    var secondsRemaining = 10
-    
+    var secondsRemaining = 60
+
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
     @IBOutlet var wordLabel: UILabel!
@@ -23,13 +23,16 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         actionLabel.isHidden = true
         
-        
         timerLabel.text = String(secondsRemaining)
-        createTimer()
+        
+        
+    }
+    
+    private func setupViews() {
+        wordLabel.numberOfLines = 0
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
@@ -66,6 +69,9 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        startButton.alpha = 0
     }
 }
 
@@ -75,8 +81,8 @@ extension GameViewController {
     
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    }
-    
+    }   
+
     @objc func updateTimer() {
         
         DispatchQueue.main.async {
@@ -90,8 +96,7 @@ extension GameViewController {
             //            go to VC -> ResultViewController
             //            dont have storyboard ID
             //            comment
+
         }
-        
-        
     }
 }
