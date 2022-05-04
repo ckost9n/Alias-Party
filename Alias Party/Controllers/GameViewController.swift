@@ -10,11 +10,9 @@ import UIKit
 class GameViewController: UIViewController {
     
     var some = ActionList()
-    
-    
-    
+
     var timer = Timer()
-    var secondsRemaining = 60
+    var secondsRemaining = 5
 
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
@@ -24,15 +22,16 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        actionLabel.isHidden = true
-        
-        timerLabel.text = String(secondsRemaining)
-        
+        setupViews()
         
     }
     
     private func setupViews() {
+        actionLabel.isHidden = true
         wordLabel.numberOfLines = 0
+        actionLabel.numberOfLines = 0
+        
+        timerLabel.text = String(secondsRemaining)
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
@@ -44,7 +43,6 @@ class GameViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
     }
-    
     
     @IBAction func startButtonAction(_ sender: UIButton) {
         
@@ -69,13 +67,14 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.alpha = 0
     }
 }
 
-
+// MARK: - Timer
 
 extension GameViewController {
     
@@ -92,11 +91,11 @@ extension GameViewController {
         if secondsRemaining > 0 {
             secondsRemaining -= 1
             timerLabel.text = String(secondsRemaining)
-        } else {
-            //            go to VC -> ResultViewController
-            //            dont have storyboard ID
-            //            comment
-
+        } else if secondsRemaining == 0 {
+            timer.invalidate()
+            startButton.isHidden = false
+            
         }
+        
     }
 }

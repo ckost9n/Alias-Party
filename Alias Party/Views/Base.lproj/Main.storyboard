@@ -155,11 +155,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvN-jZ-DYH">
-                                <rect key="frame" x="161.5" y="785" width="91.5" height="47"/>
+                                <rect key="frame" x="116" y="785" width="182.5" height="47"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Сброс">
+                                <buttonConfiguration key="configuration" style="plain" title="Пропустить">
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                 </buttonConfiguration>
                                 <connections>
