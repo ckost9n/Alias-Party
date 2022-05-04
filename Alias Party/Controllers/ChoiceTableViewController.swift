@@ -17,6 +17,7 @@ class ChoiceTableViewController: UITableViewController {
         super.viewDidLoad()
         
         actionsArray = Action.getActions()
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background2.png"))
         
         
         // Uncomment the following line to preserve selection between presentations
