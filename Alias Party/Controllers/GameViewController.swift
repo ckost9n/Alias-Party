@@ -10,7 +10,7 @@ import UIKit
 class GameViewController: UIViewController {
     
     var timer = Timer()
-    var secondsRemaining = 10
+    var secondsRemaining = 60
 
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
@@ -23,7 +23,8 @@ class GameViewController: UIViewController {
         setupViews()
         
         timerLabel.text = String(secondsRemaining)
-        createTimer()
+        
+        
     }
     
     private func setupViews() {
@@ -37,20 +38,20 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        
     }
     
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        startButton.alpha = 0
     }
 
 }
 
 extension GameViewController {
     
-    func createTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    }
-
     @objc func updateTimer() {
         
         DispatchQueue.main.async {
@@ -60,12 +61,6 @@ extension GameViewController {
         if secondsRemaining > 0 {
             secondsRemaining -= 1
             timerLabel.text = String(secondsRemaining)
-        } else {
-//            go to VC -> ResultViewController
-//            dont have storyboard ID
-//            comment
         }
-        
-        
     }
 }
