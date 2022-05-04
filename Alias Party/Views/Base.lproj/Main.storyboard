@@ -132,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="7hh-pw-Xlb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundYellow" translatesAutoresizingMaskIntoConstraints="NO" id="7hh-pw-Xlb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="udq-Em-zQh">
@@ -161,7 +161,7 @@
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Не отгадали" backgroundImage="red3ButtonWGF"/>
+                                        <state key="normal" title="Не отгадали" backgroundImage="redBtnWGF"/>
                                         <connections>
                                             <action selector="wrongButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="s83-eJ-mnG"/>
                                         </connections>
@@ -177,7 +177,7 @@
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Сброс" backgroundImage="redBtnWGF"/>
+                                <state key="normal" title="Сброс" backgroundImage="orangeBtnGF"/>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="X2C-qc-gTx"/>
                                     <segue destination="JZT-i7-8nL" kind="show" id="peo-qI-rWH"/>
@@ -210,7 +210,7 @@
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Начали" backgroundImage="orangeBtnGF"/>
+                                <state key="normal" title="Начали" backgroundImage="blueBtnGF"/>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="a9f-ka-bcP"/>
                                     <action selector="startButtonAction:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="L6n-hE-KQw"/>
@@ -258,7 +258,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-he-jAC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bacgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-he-jAC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваш СЧЕТ:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlj-A5-MtT">
@@ -285,7 +285,7 @@
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Продолжить" backgroundImage="cyanBtnWGF"/>
+                                        <state key="normal" title="Продолжить" backgroundImage="blueBtnGF"/>
                                         <connections>
                                             <action selector="continueButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="Clc-0x-ncx"/>
                                         </connections>
@@ -313,7 +313,7 @@
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="На главный экран" backgroundImage="red3ButtonWGF"/>
+                                        <state key="normal" title="На главный экран" backgroundImage="redBtnGF"/>
                                         <connections>
                                             <action selector="goMainViewButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="AK5-Ca-ZoS"/>
                                         </connections>
@@ -363,7 +363,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="2eB-xM-qhR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundPurple" translatesAutoresizingMaskIntoConstraints="NO" id="2eB-xM-qhR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text will update after loading" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff0-Zj-bcT">
@@ -415,12 +415,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bacgroundGreen" width="1284" height="2778"/>
         <image name="background2" width="1284" height="2778"/>
-        <image name="cyanBtnWGF" width="1003" height="267"/>
+        <image name="backgroundPurple" width="1284" height="2778"/>
+        <image name="backgroundYellow" width="1284" height="2778"/>
+        <image name="blueBtnGF" width="1003" height="267"/>
         <image name="greenBtnWGF" width="1003" height="267"/>
         <image name="logo2" width="433.5" height="174"/>
         <image name="orangeBtnGF" width="1003" height="267"/>
         <image name="red3ButtonWGF" width="752" height="200"/>
+        <image name="redBtnGF" width="1003" height="267"/>
         <image name="redBtnWGF" width="1003" height="267"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
