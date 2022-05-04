@@ -39,7 +39,7 @@ class ResultViewController: UIViewController, JokeManagerDelegate {
         DispatchQueue.main.async {
         
             self.jokeLabel.text = joke.setup
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
                 
                 self.jokeLabel.text! += "\n" + punchline.punchline
                 self.playSound()
