@@ -189,8 +189,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Действие" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcp-Nq-s1a">
-                                <rect key="frame" x="123.5" y="171.5" width="167" height="43.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Действие" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcp-Nq-s1a">
+                                <rect key="frame" x="30" y="171.5" width="354" height="43.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -220,6 +220,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pcp-Nq-s1a" firstAttribute="top" secondItem="xOG-Ig-E0n" secondAttribute="bottom" constant="20" id="11g-0l-SpP"/>
+                            <constraint firstItem="Pcp-Nq-s1a" firstAttribute="leading" secondItem="9pV-ks-l3I" secondAttribute="leading" constant="30" id="2Pi-sU-uUb"/>
+                            <constraint firstItem="9pV-ks-l3I" firstAttribute="trailing" secondItem="Pcp-Nq-s1a" secondAttribute="trailing" constant="30" id="5ug-dt-Bxg"/>
                             <constraint firstItem="FGS-KF-aol" firstAttribute="centerY" secondItem="bGl-wW-rwZ" secondAttribute="centerY" id="8P1-ma-6w1"/>
                             <constraint firstItem="7hh-pw-Xlb" firstAttribute="leading" secondItem="bGl-wW-rwZ" secondAttribute="leading" id="9MP-Wq-o5d"/>
                             <constraint firstItem="udq-Em-zQh" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="BBN-CH-58C"/>
@@ -229,7 +231,6 @@
                             <constraint firstItem="FGS-KF-aol" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="PqZ-q6-gUc"/>
                             <constraint firstItem="7hh-pw-Xlb" firstAttribute="top" secondItem="bGl-wW-rwZ" secondAttribute="top" id="Q5o-Vx-2N2"/>
                             <constraint firstAttribute="bottom" secondItem="7hh-pw-Xlb" secondAttribute="bottom" id="ajJ-A8-qH4"/>
-                            <constraint firstItem="Pcp-Nq-s1a" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="oTU-Ox-paH"/>
                             <constraint firstItem="udq-Em-zQh" firstAttribute="top" secondItem="yp3-Yq-2LX" secondAttribute="bottom" constant="30" id="q8N-QD-80f"/>
                             <constraint firstItem="xOG-Ig-E0n" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="sFS-C0-bjj"/>
                             <constraint firstItem="wvN-jZ-DYH" firstAttribute="centerX" secondItem="bGl-wW-rwZ" secondAttribute="centerX" id="u9u-2m-LDV"/>

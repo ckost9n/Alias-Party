@@ -28,8 +28,6 @@ class GameViewController: UIViewController {
     
     private func setupViews() {
         actionLabel.isHidden = true
-        wordLabel.numberOfLines = 0
-        actionLabel.numberOfLines = 0
         
         timerLabel.text = String(secondsRemaining)
     }
@@ -70,7 +68,7 @@ class GameViewController: UIViewController {
         
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        startButton.alpha = 0
+        startButton.isHidden = true
     }
 }
 
@@ -93,9 +91,19 @@ extension GameViewController {
             timerLabel.text = String(secondsRemaining)
         } else if secondsRemaining == 0 {
             timer.invalidate()
+            startButton.setTitle("Дальше", for: .normal)
             startButton.isHidden = false
             
+            performSegue(withIdentifier: "goToScore", sender: self)
         }
         
+    }
+}
+
+extension GameViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.modalPresentationStyle = .fullScreen
+        resultVC.modalTransitionStyle = .flipHorizontal
     }
 }
