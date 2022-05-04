@@ -212,8 +212,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Начали" backgroundImage="orangeBtnGF"/>
                                 <connections>
-                                    <action selector="resetButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="a9f-ka-bcP"/>
-                                    <action selector="startButtonAction:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="L6n-hE-KQw"/>
+                                    <action selector="startButtonAction:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="Qhj-uy-EdM"/>
                                 </connections>
                             </button>
                         </subviews>
