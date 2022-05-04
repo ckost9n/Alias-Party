@@ -194,8 +194,7 @@
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="resetButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="a9f-ka-bcP"/>
-                                    <action selector="startButtonAction:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="L6n-hE-KQw"/>
+                                    <action selector="startButtonAction:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="Qhj-uy-EdM"/>
                                 </connections>
                             </button>
                         </subviews>
