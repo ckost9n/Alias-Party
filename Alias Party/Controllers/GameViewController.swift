@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     
+    var soundManager = SoundManager()
     var some = ActionList()
     
     
@@ -36,12 +38,15 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
+        soundManager.playSound(soundName: "right")
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
+        soundManager.playSound(soundName: "wrong")
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        soundManager.playSound(soundName: "button")
         
     }
     
@@ -72,6 +77,8 @@ class GameViewController: UIViewController {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.alpha = 0
+        
+        soundManager.playSound(soundName: "button")
     }
 }
 
@@ -93,6 +100,8 @@ extension GameViewController {
             secondsRemaining -= 1
             timerLabel.text = String(secondsRemaining)
         } else {
+            soundManager.playSound(soundName: "endTimer1")
+            timer.invalidate()
             //            go to VC -> ResultViewController
             //            dont have storyboard ID
             //            comment

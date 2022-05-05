@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    var soundManager = SoundManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,16 +19,20 @@ class ViewController: UIViewController {
 
     @IBAction func continuePressed(_ sender: UIButton) {
         print(#function)
+        soundManager.playSound(soundName: "button")
+        
     }
     
     @IBAction func newGamePressed(_ sender: UIButton) {
         print(#function)
+        soundManager.playSound(soundName: "button")
     }
     
     @IBAction func rulesPressed(_ sender: UIButton) {
         print(#function)
+        soundManager.playSound(soundName: "button")
     }
     
 }
 
-let hj = 12312
+
