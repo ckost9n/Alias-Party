@@ -40,6 +40,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
+        wordLabel.text = questionBrain.question[0].text
+        questionBrain.deleteElementFromArray()
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
@@ -49,6 +51,11 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        
+        guard startButton.currentTitle == "Начали" else {
+            performSegue(withIdentifier: "goToScore", sender: self)
+            return
+        }
         
         if some.actions.isEmpty {
             actionLabel.isHidden = true
@@ -70,6 +77,9 @@ class GameViewController: UIViewController {
                     actionLabel.isHidden = true
                 }
             }
+            
+            wordLabel.text = questionBrain.question[0].text
+            questionBrain.deleteElementFromArray()
         }
         
         timer.invalidate()
@@ -100,7 +110,7 @@ extension GameViewController {
             startButton.setTitle("Дальше", for: .normal)
             startButton.isHidden = false
             
-            performSegue(withIdentifier: "goToScore", sender: self)
+            
         }
         
     }
