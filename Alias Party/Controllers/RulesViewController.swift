@@ -8,11 +8,18 @@
 import UIKit
 
 class RulesViewController: UIViewController {
+    
+    let rules = RulesData()
 
+    @IBOutlet weak var rulesLabel: UITextView!
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+        rulesLabel.text = rules.getRules()
         // Do any additional setup after loading the view.
+        
     }
     
 

@@ -9,10 +9,12 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    var some = ActionList()
+
     var timer = Timer()
     var secondsRemaining = 10
     var questionBrain = questionsBrain()
-    
+   
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
     @IBOutlet var wordLabel: UILabel!
@@ -20,9 +22,15 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupViews()
+        
+    }
+    
+    private func setupViews() {
+        actionLabel.isHidden = true
         
         timerLabel.text = String(secondsRemaining)
-        createTimer()
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
@@ -37,19 +45,46 @@ class GameViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
         // replace.array
+
     }
-    
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        
+        if some.actions.isEmpty {
+            actionLabel.isHidden = true
+        } else {
+            
+            actionLabel.text = some.actions[Int.random(in: 0..<some.actions.count)]
+            let startButtonPressedCount = Int.random(in: 0..<some.actions.count)
+            
+            if let indexOfAction = some.actions.firstIndex(of: actionLabel.text!) {
+                print(startButtonPressedCount)
+                print(indexOfAction)
+                print(some.actions.count)
+                
+                some.actions.remove(at: indexOfAction)
+                
+                if startButtonPressedCount == indexOfAction {
+                    actionLabel.isHidden = false
+                } else {
+                    actionLabel.isHidden = true
+                }
+            }
+        }
+        
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        startButton.isHidden = true
     }
-
 }
+
+// MARK: - Timer
 
 extension GameViewController {
     
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    }
+    }   
 
     @objc func updateTimer() {
         
@@ -60,12 +95,21 @@ extension GameViewController {
         if secondsRemaining > 0 {
             secondsRemaining -= 1
             timerLabel.text = String(secondsRemaining)
-        } else {
-//            go to VC -> ResultViewController
-//            dont have storyboard ID
-//            comment
+        } else if secondsRemaining == 0 {
+            timer.invalidate()
+            startButton.setTitle("Дальше", for: .normal)
+            startButton.isHidden = false
+            
+            performSegue(withIdentifier: "goToScore", sender: self)
         }
         
-        
+    }
+}
+
+extension GameViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.modalPresentationStyle = .fullScreen
+        resultVC.modalTransitionStyle = .flipHorizontal
     }
 }
