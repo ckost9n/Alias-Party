@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
     
     private func setupViews() {
         actionLabel.isHidden = true
+        changeHidden(bool: true)
         timerLabel.text = String(secondsRemaining)
         navigationItem.title = "Alfa"
     }
@@ -123,7 +124,7 @@ class GameViewController: UIViewController {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.isHidden = true
-        changeHidden(bool: true)
+//        changeHidden(bool: true)
     }
 }
 
@@ -148,7 +149,10 @@ extension GameViewController {
             timer.invalidate()
             startButton.setTitle("Дальше", for: .normal)
             startButton.isHidden = false
-            changeHidden(bool: false)
+            if actionLabel.isHidden == false {
+                changeHidden(bool: false)
+            }
+            
             
         }
         
