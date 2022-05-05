@@ -12,8 +12,9 @@ class GameViewController: UIViewController {
     var some = ActionList()
 
     var timer = Timer()
-    var secondsRemaining = 5
-
+    var secondsRemaining = 10
+    var questionBrain = questionsBrain()
+   
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
     @IBOutlet var wordLabel: UILabel!
@@ -33,6 +34,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
+        wordLabel.text = questionBrain.question[0].text
+        questionBrain.deleteElementFromArray()
+        
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
@@ -40,6 +44,8 @@ class GameViewController: UIViewController {
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
+        // replace.array
+
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
