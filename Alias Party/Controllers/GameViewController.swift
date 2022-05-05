@@ -12,6 +12,9 @@ class GameViewController: UIViewController {
     var some = ActionList()
     var world = ""
     var choiceAction = ""
+    var teamId = "TeamOne"
+    var scoreTeamOne = 0
+    var scoreTeamTwo = 0
 
     var timer = Timer()
     var secondsRemaining = 10
@@ -30,6 +33,53 @@ class GameViewController: UIViewController {
         
     }
     
+    // MARK: - ScoreCalculations
+
+    func addUpScore() {
+        if teamId == "TeamOne" {
+            scoreTeamOne += 1
+            print("Счет первой команды: \(scoreTeamOne)")
+        } else if teamId == "TeamTwo" {
+            scoreTeamTwo += 1
+            print("Счет второй команды: \(scoreTeamTwo)")
+        } else {
+            print("What`s happend")
+        }
+    }
+    func actionAddUpScore() {
+        if teamId == "TeamOne" {
+            scoreTeamOne += 3
+            print("Прибавка от действия первой команде")
+        } else if teamId == "TeamTwo"{
+            scoreTeamTwo += 3
+            print("Прибавка от действия второй команде")
+        } else{
+            print("What`s happend in actionAddUpScore()")
+        }
+    }
+    func substractAction() {
+        if teamId == "TeamOne"{
+            scoreTeamOne -= 1
+            print("Отнятие 1 от счета первой команды")
+        } else if teamId == "TeamTwo"{
+            scoreTeamTwo -= 1
+            print("Отнятие 1 от счета второй команды")
+        } else{
+            print("What`s happend in substractAction()")
+        }
+    }
+    func teamChanging() {
+        if teamId == "TeamOne" {
+            teamId = "TeamTwo"
+        } else{
+            teamId = "TeamOne"
+        }
+    }
+
+//    func totalScoreForEachTeam() -> Int {
+//    Для передачи счета по MVC
+//    }
+    
     private func setupViews() {
         actionLabel.isHidden = true
         changeHidden(bool: true)
@@ -44,27 +94,21 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
-//        wordLabel.text = questionBrain.question[0].text
-//        questionBrain.deleteElementFromArray()
-        
         world = questionBrain.question2.randomElement() ?? ""
         wordLabel.text = world
         questionBrain.deleteElementFromArray2(value: world)
+        addUpScore()
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
-//        wordLabel.text = questionBrain.question[0].text
-//        questionBrain.deleteElementFromArray()
-        
         world = questionBrain.question2.randomElement() ?? ""
         wordLabel.text = world
         questionBrain.deleteElementFromArray2(value: world)
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        
-        // replace.array
-
+        teamChanging()
+        // Надо скрыть кнопку сброса после смены команды,и почему вообще на кнопку сброса это должно происходить..
     }
     
     @IBAction func actionChanged(_ sender: UIButton) {
@@ -80,8 +124,10 @@ class GameViewController: UIViewController {
         
         if choiceAction == "Да" {
             print("Да")
+            actionAddUpScore()
         } else if choiceAction == "Нет" {
             print("Нет")
+            substractAction()
         }
         
         guard startButton.currentTitle == "Начали" else {
@@ -166,3 +212,5 @@ extension GameViewController {
         resultVC.modalTransitionStyle = .flipHorizontal
     }
 }
+
+
