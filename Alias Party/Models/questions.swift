@@ -14,3 +14,38 @@ struct Question {
         text = q
     }
 }
+
+struct Question2 {
+    
+    
+    static func getData() -> Set<String> {
+        let questionsData: Set = [
+            "Driver",
+            "Red",
+            "Wings",
+            "Fall",
+            "Meal",
+            "Great",
+            "Sing",
+            "Head",
+            "Chicken",
+            "Bed",
+            "Humble",
+            "Transport",
+            "Shoes",
+            "Accomplish",
+            "Boast",
+            "Feeling",
+            "Breakfast",
+            "Soft",
+            "Blanket",
+            "Bird",
+            "Sleep",
+        ]
+        
+        return questionsData
+    }
+    
+}
+
+

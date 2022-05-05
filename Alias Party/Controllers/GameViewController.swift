@@ -10,6 +10,7 @@ import UIKit
 class GameViewController: UIViewController {
     
     var some = ActionList()
+    var world = ""
 
     var timer = Timer()
     var secondsRemaining = 10
@@ -34,14 +35,21 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
-        wordLabel.text = questionBrain.question[0].text
-        questionBrain.deleteElementFromArray()
+//        wordLabel.text = questionBrain.question[0].text
+//        questionBrain.deleteElementFromArray()
         
+        world = questionBrain.question2.randomElement() ?? ""
+        wordLabel.text = world
+        questionBrain.deleteElementFromArray2(value: world)
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
-        wordLabel.text = questionBrain.question[0].text
-        questionBrain.deleteElementFromArray()
+//        wordLabel.text = questionBrain.question[0].text
+//        questionBrain.deleteElementFromArray()
+        
+        world = questionBrain.question2.randomElement() ?? ""
+        wordLabel.text = world
+        questionBrain.deleteElementFromArray2(value: world)
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
@@ -78,8 +86,12 @@ class GameViewController: UIViewController {
                 }
             }
             
-            wordLabel.text = questionBrain.question[0].text
-            questionBrain.deleteElementFromArray()
+//            wordLabel.text = questionBrain.question[0].text
+//            questionBrain.deleteElementFromArray()
+            
+            world = questionBrain.question2.randomElement() ?? ""
+            wordLabel.text = world
+            questionBrain.deleteElementFromArray2(value: world)
         }
         
         timer.invalidate()
