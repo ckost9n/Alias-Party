@@ -11,6 +11,7 @@ class GameViewController: UIViewController {
     
     var some = ActionList()
     var world = ""
+    var choiceAction = ""
 
     var timer = Timer()
     var secondsRemaining = 10
@@ -21,6 +22,7 @@ class GameViewController: UIViewController {
     @IBOutlet var wordLabel: UILabel!
     @IBOutlet var startButton: UIButton!
     
+    @IBOutlet var buttonActionCollection: [UIButton]!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,12 @@ class GameViewController: UIViewController {
         actionLabel.isHidden = true
         timerLabel.text = String(secondsRemaining)
         navigationItem.title = "Alfa"
+    }
+    
+    private func changeHidden(bool: Bool) {
+        for button in buttonActionCollection {
+            button.isHidden = bool
+        }
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
@@ -58,7 +66,22 @@ class GameViewController: UIViewController {
 
     }
     
+    @IBAction func actionChanged(_ sender: UIButton) {
+        for button in buttonActionCollection {
+            button.isSelected = false
+        }
+        
+        sender.isSelected = true
+        choiceAction = sender.currentTitle ?? ""
+    }
+    
     @IBAction func startButtonAction(_ sender: UIButton) {
+        
+        if choiceAction == "Да" {
+            print("Да")
+        } else if choiceAction == "Нет" {
+            print("Нет")
+        }
         
         guard startButton.currentTitle == "Начали" else {
             performSegue(withIdentifier: "goToScore", sender: self)
@@ -67,6 +90,7 @@ class GameViewController: UIViewController {
         
         if some.actions.isEmpty {
             actionLabel.isHidden = true
+            
         } else {
             
             actionLabel.text = some.actions[Int.random(in: 0..<some.actions.count)]
@@ -81,8 +105,10 @@ class GameViewController: UIViewController {
                 
                 if startButtonPressedCount == indexOfAction {
                     actionLabel.isHidden = false
+                    
                 } else {
                     actionLabel.isHidden = true
+                    
                 }
             }
             
@@ -97,6 +123,7 @@ class GameViewController: UIViewController {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.isHidden = true
+        changeHidden(bool: true)
     }
 }
 
@@ -121,7 +148,7 @@ extension GameViewController {
             timer.invalidate()
             startButton.setTitle("Дальше", for: .normal)
             startButton.isHidden = false
-            
+            changeHidden(bool: false)
             
         }
         
