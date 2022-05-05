@@ -16,6 +16,8 @@ class ViewController: UIViewController {
 
     @IBAction func continuePressed(_ sender: UIButton) {
         print(#function)
+        
+        
     }
     
     @IBAction func newGamePressed(_ sender: UIButton) {
@@ -26,5 +28,7 @@ class ViewController: UIViewController {
         print(#function)
     }
     
+    
 }
+
 

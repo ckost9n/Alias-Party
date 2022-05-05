@@ -6,28 +6,32 @@
 //
 
 import UIKit
+import AVFoundation
+import AudioToolbox
 
 class GameViewController: UIViewController {
     
     var some = ActionList()
     var world = ""
     var choiceAction = ""
-
+    
     var timer = Timer()
-    var secondsRemaining = 10
+    var secondsRemaining = 2
     var questionBrain = questionsBrain()
-   
+    
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
     @IBOutlet var wordLabel: UILabel!
     @IBOutlet var startButton: UIButton!
     
     @IBOutlet var buttonActionCollection: [UIButton]!
+    
+    var circularProgressBarView: CircularProgressBar!
+    var circularViewDuration: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
-        
     }
     
     private func setupViews() {
@@ -44,8 +48,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
-//        wordLabel.text = questionBrain.question[0].text
-//        questionBrain.deleteElementFromArray()
+        //        wordLabel.text = questionBrain.question[0].text
+        //        questionBrain.deleteElementFromArray()
         
         world = questionBrain.question2.randomElement() ?? ""
         wordLabel.text = world
@@ -53,8 +57,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
-//        wordLabel.text = questionBrain.question[0].text
-//        questionBrain.deleteElementFromArray()
+        //        wordLabel.text = questionBrain.question[0].text
+        //        questionBrain.deleteElementFromArray()
         
         world = questionBrain.question2.randomElement() ?? ""
         wordLabel.text = world
@@ -64,7 +68,7 @@ class GameViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
         // replace.array
-
+        
     }
     
     @IBAction func actionChanged(_ sender: UIButton) {
@@ -77,6 +81,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        
+        setupCircularProgressBarView()
         
         if choiceAction == "Да" {
             print("Да")
@@ -109,12 +115,11 @@ class GameViewController: UIViewController {
                     
                 } else {
                     actionLabel.isHidden = true
-                    
                 }
             }
             
-//            wordLabel.text = questionBrain.question[0].text
-//            questionBrain.deleteElementFromArray()
+            //            wordLabel.text = questionBrain.question[0].text
+            //            questionBrain.deleteElementFromArray()
             
             world = questionBrain.question2.randomElement() ?? ""
             wordLabel.text = world
@@ -124,7 +129,7 @@ class GameViewController: UIViewController {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.isHidden = true
-//        changeHidden(bool: true)
+        //        changeHidden(bool: true)
     }
 }
 
@@ -134,8 +139,8 @@ extension GameViewController {
     
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    }   
-
+    }
+    
     @objc func updateTimer() {
         
         DispatchQueue.main.async {
@@ -146,23 +151,34 @@ extension GameViewController {
             secondsRemaining -= 1
             timerLabel.text = String(secondsRemaining)
         } else if secondsRemaining == 0 {
+            AudioServicesPlaySystemSound(SystemSoundID(1323))
             timer.invalidate()
             startButton.setTitle("Дальше", for: .normal)
             startButton.isHidden = false
+           
             if actionLabel.isHidden == false {
                 changeHidden(bool: false)
             }
-            
-            
         }
-        
     }
 }
+//MARK: - Segue to Results
 
 extension GameViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let resultVC = segue.destination as? ResultViewController else { return }
         resultVC.modalPresentationStyle = .fullScreen
         resultVC.modalTransitionStyle = .flipHorizontal
+    }
+}
+//MARK: - Circular ProgressBar
+
+extension GameViewController {
+    
+    func setupCircularProgressBarView() {
+        circularProgressBarView = CircularProgressBar(frame: .zero)
+        circularProgressBarView.center = timerLabel.center
+        circularProgressBarView.progressAnimation(duration: Double(secondsRemaining))
+        view.addSubview(circularProgressBarView)
     }
 }
