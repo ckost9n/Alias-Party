@@ -29,8 +29,8 @@ class GameViewController: UIViewController {
     
     private func setupViews() {
         actionLabel.isHidden = true
-        
         timerLabel.text = String(secondsRemaining)
+        navigationItem.title = "Alfa"
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {

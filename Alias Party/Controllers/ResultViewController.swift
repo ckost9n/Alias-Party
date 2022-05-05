@@ -19,9 +19,14 @@ class ResultViewController: UIViewController, JokeManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
+        
+    }
+    
+    private func setupViews() {
         jokeManager.delegate = self
         jokeManager.getJoke()
-        
+        navigationItem.title = "Alfa"
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
