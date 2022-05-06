@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        navigationItem.hidesBackButton = true
     }
     
     private func setupViews() {
