@@ -31,12 +31,15 @@ class ResultViewController: UIViewController, JokeManagerDelegate {
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         
+        
     }
     
     @IBAction func newGameButtonPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func goMainViewButtonPressed(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func didUpdateJoke(joke: JokeModel, punchline: JokeModel) {
