@@ -57,4 +57,8 @@ class CircularProgressBar: UIView {
         progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
     }
     
+    
+    
+    
+    
 }
