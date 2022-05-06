@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     var some = ActionList()
     var world = ""
     var choiceAction = ""
-    let CalculationScore = ScoreCalculation()
+    var calculationScore = ScoreCalculation()
     var timer = Timer()
     var secondsRemaining = 10
     var questionBrain = questionsBrain()
@@ -51,20 +51,18 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
-        world = questionBrain.question2.randomElement() ?? ""
-        wordLabel.text = world
-        questionBrain.deleteElementFromArray2(value: world)
-        ScoreCalculation.addUpScore()
+        updateWordsSet()
+        print("---------")
+        print(calculationScore.addUpScore())
+        print("---------")
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
-        world = questionBrain.question2.randomElement() ?? ""
-        wordLabel.text = world
-        questionBrain.deleteElementFromArray2(value: world)
+        updateWordsSet()
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        ScoreCalculation.teamChanging()
+        print(calculationScore.teamChanging())
         // Надо скрыть кнопку сброса после смены команды,и почему вообще на кнопку сброса это должно происходить..
     }
     
@@ -81,10 +79,10 @@ class GameViewController: UIViewController {
         
         if choiceAction == "Да" {
             print("Да")
-            ScoreCalculation.actionAddUpScore()
+            print(calculationScore.actionAddUpScore())
         } else if choiceAction == "Нет" {
             print("Нет")
-            substractAction()
+            print(calculationScore.substractAction())
         }
         
         guard startButton.currentTitle == "Начали" else {
@@ -116,18 +114,19 @@ class GameViewController: UIViewController {
                 }
             }
             
-//            wordLabel.text = questionBrain.question[0].text
-//            questionBrain.deleteElementFromArray()
-            
-            world = questionBrain.question2.randomElement() ?? ""
-            wordLabel.text = world
-            questionBrain.deleteElementFromArray2(value: world)
+            updateWordsSet()
         }
         
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.isHidden = true
 //        changeHidden(bool: true)
+    }
+    
+    private func updateWordsSet() {
+        world = questionBrain.question2.randomElement() ?? ""
+        wordLabel.text = world
+        questionBrain.deleteElementFromArray2(value: world)
     }
 }
 
