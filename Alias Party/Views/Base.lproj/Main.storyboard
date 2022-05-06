@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j6U-1e-msx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j6U-1e-msx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -338,7 +338,7 @@
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Продолжить" backgroundImage="cyanFlatTestBtnWGF"/>
+                                        <state key="normal" title="Продолжить" backgroundImage="yellow4BtnWGF"/>
                                         <connections>
                                             <action selector="continueButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="Clc-0x-ncx"/>
                                         </connections>
@@ -352,7 +352,7 @@
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Новая игра" backgroundImage="purpleBtnG"/>
+                                        <state key="normal" title="Новая игра" backgroundImage="blue3BtnGF"/>
                                         <connections>
                                             <action selector="newGameButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="dzg-Mn-3bk"/>
                                         </connections>
@@ -366,7 +366,7 @@
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="На главный экран" backgroundImage="blueGBtnWGF"/>
+                                        <state key="normal" title="На главный экран" backgroundImage="red3ButtonWGF"/>
                                         <connections>
                                             <action selector="goMainViewButtonPressed:" destination="JZT-i7-8nL" eventType="touchUpInside" id="AK5-Ca-ZoS"/>
                                         </connections>
@@ -414,6 +414,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BR5-En-S8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3611.594202898551" y="81.696428571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LIR-mi-NIx">
+            <objects>
+                <viewController id="mhF-WS-kI7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xU4-sg-enf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundblue2" translatesAutoresizingMaskIntoConstraints="NO" id="eRp-9Y-tEK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ваша команда набрала :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UT-Gb-jgk">
+                                <rect key="frame" x="26" y="247" width="366" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-IG-DwR">
+                                <rect key="frame" x="80" y="614" width="254" height="223"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vuq-ev-7op">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="67.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="colorTest" backgroundImage="yellow4BtnWGF">
+                                            <color key="titleColor" systemColor="systemTealColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um3-b0-tRE">
+                                        <rect key="frame" x="0.0" y="77.5" width="254" height="68"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="category 2" backgroundImage="yellow2BtnWGF"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGV-iN-PSS">
+                                        <rect key="frame" x="0.0" y="155.5" width="254" height="67.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="category 3" backgroundImage="yellow2BtnWGF"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avz-O6-a5q">
+                                <rect key="frame" x="140" y="326" width="135" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mrr-Mu-RpP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mrr-Mu-RpP" firstAttribute="trailing" secondItem="Lf8-IG-DwR" secondAttribute="trailing" constant="80" id="B5A-aD-elS"/>
+                            <constraint firstItem="Lf8-IG-DwR" firstAttribute="top" secondItem="Mrr-Mu-RpP" secondAttribute="top" constant="570" id="IPx-hS-eGO"/>
+                            <constraint firstItem="Mrr-Mu-RpP" firstAttribute="bottom" secondItem="Lf8-IG-DwR" secondAttribute="bottom" constant="25" id="l3S-0c-N0E"/>
+                            <constraint firstItem="Lf8-IG-DwR" firstAttribute="leading" secondItem="Mrr-Mu-RpP" secondAttribute="leading" constant="80" id="qxw-kd-KDn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6D3-hk-fJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4275.36231884058" y="81.696428571428569"/>
         </scene>
         <!--Правила-->
         <scene sceneID="rGe-Gf-tYP">
@@ -486,10 +553,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1j2-2C-SWK">
-                                <rect key="frame" x="35" y="154" width="344" height="608"/>
+                                <rect key="frame" x="35" y="244" width="344" height="518"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-Be-yHp">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="105.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="87.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -498,38 +565,47 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaQ-CF-OKo">
-                                        <rect key="frame" x="0.0" y="125.5" width="344" height="105.5"/>
+                                        <rect key="frame" x="0.0" y="107.5" width="344" height="87.5"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="category 2" backgroundImage="yellow2BtnWGF"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNf-kC-Yru">
-                                        <rect key="frame" x="0.0" y="251" width="344" height="106"/>
+                                        <rect key="frame" x="0.0" y="215" width="344" height="88"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="category 3" backgroundImage="yellow2BtnWGF"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWE-gU-ueL">
-                                        <rect key="frame" x="0.0" y="377" width="344" height="105.5"/>
+                                        <rect key="frame" x="0.0" y="323" width="344" height="87.5"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="category 4" backgroundImage="yellow2BtnWGF"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7E-3s-qHS">
-                                        <rect key="frame" x="0.0" y="502.5" width="344" height="105.5"/>
+                                        <rect key="frame" x="0.0" y="430.5" width="344" height="87.5"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="category 5" backgroundImage="yellow2BtnWGF"/>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выбор тематики" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E49-dW-WvC">
+                                <rect key="frame" x="60" y="150.5" width="294" height="43.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iW9-C1-jj7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1j2-2C-SWK" firstAttribute="leading" secondItem="iW9-C1-jj7" secondAttribute="leading" constant="35" id="A6n-za-mIu"/>
                             <constraint firstItem="iW9-C1-jj7" firstAttribute="bottom" secondItem="1j2-2C-SWK" secondAttribute="bottom" constant="100" id="Anp-CJ-6O7"/>
-                            <constraint firstItem="1j2-2C-SWK" firstAttribute="top" secondItem="iW9-C1-jj7" secondAttribute="top" constant="110" id="cNm-dy-Y6f"/>
+                            <constraint firstItem="1j2-2C-SWK" firstAttribute="top" secondItem="E49-dW-WvC" secondAttribute="bottom" constant="50" id="K8o-Ty-VkH"/>
+                            <constraint firstItem="E49-dW-WvC" firstAttribute="leading" secondItem="iW9-C1-jj7" secondAttribute="leading" constant="60" id="V5S-KI-I2x"/>
+                            <constraint firstItem="1j2-2C-SWK" firstAttribute="top" secondItem="iW9-C1-jj7" secondAttribute="top" constant="200" id="cNm-dy-Y6f"/>
+                            <constraint firstItem="iW9-C1-jj7" firstAttribute="trailing" secondItem="E49-dW-WvC" secondAttribute="trailing" constant="60" id="o4F-ym-vN2"/>
                             <constraint firstItem="iW9-C1-jj7" firstAttribute="trailing" secondItem="1j2-2C-SWK" secondAttribute="trailing" constant="35" id="oAg-bf-hdI"/>
                         </constraints>
                     </view>
@@ -545,16 +621,16 @@
         <image name="backgroundGreen" width="1284" height="2778"/>
         <image name="backgroundPurple" width="1284" height="2778"/>
         <image name="backgroundYellow" width="1284" height="2778"/>
+        <image name="backgroundblue2" width="1284" height="2778"/>
+        <image name="blue3BtnGF" width="752" height="200"/>
         <image name="blueG3BtnWGF" width="752" height="200"/>
-        <image name="blueGBtnWGF" width="752" height="200"/>
-        <image name="cyanFlatTestBtnWGF" width="752" height="200"/>
         <image name="green5BtnWGF" width="752" height="200"/>
         <image name="logo2" width="433.5" height="174"/>
         <image name="orangeBtnGF" width="1003" height="267"/>
-        <image name="purpleBtnG" width="269.5" height="90"/>
         <image name="red3ButtonWGF" width="752" height="200"/>
         <image name="redBtnWGF" width="1003" height="267"/>
         <image name="yellow2BtnWGF" width="752" height="200"/>
+        <image name="yellow4BtnWGF" width="752" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -563,6 +639,9 @@
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
