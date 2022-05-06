@@ -14,7 +14,8 @@ class GameViewController: UIViewController {
     var some = ActionList()
     var world = ""
     var choiceAction = ""
-    
+
+    var calculationScore = ScoreCalculation()
     var timer = Timer()
     var secondsRemaining = 2
     var questionBrain = questionsBrain()
@@ -35,6 +36,13 @@ class GameViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
     
+    // MARK: - ScoreCalculations
+
+
+//    func totalScoreForEachTeam() -> Int {
+//    Для передачи счета по MVC
+//    }
+    
     private func setupViews() {
         actionLabel.isHidden = true
         changeHidden(bool: true)
@@ -49,27 +57,19 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
-        //        wordLabel.text = questionBrain.question[0].text
-        //        questionBrain.deleteElementFromArray()
-        
-        world = questionBrain.question2.randomElement() ?? ""
-        wordLabel.text = world
-        questionBrain.deleteElementFromArray2(value: world)
+        updateWordsSet()
+        print("---------")
+        print(calculationScore.addUpScore())
+        print("---------")
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
-        //        wordLabel.text = questionBrain.question[0].text
-        //        questionBrain.deleteElementFromArray()
-        
-        world = questionBrain.question2.randomElement() ?? ""
-        wordLabel.text = world
-        questionBrain.deleteElementFromArray2(value: world)
+        updateWordsSet()
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        
-        // replace.array
-        
+        print(calculationScore.teamChanging())
+        // Надо скрыть кнопку сброса после смены команды,и почему вообще на кнопку сброса это должно происходить..
     }
     
     @IBAction func actionChanged(_ sender: UIButton) {
@@ -87,8 +87,10 @@ class GameViewController: UIViewController {
         
         if choiceAction == "Да" {
             print("Да")
+            print(calculationScore.actionAddUpScore())
         } else if choiceAction == "Нет" {
             print("Нет")
+            print(calculationScore.substractAction())
         }
         
         guard startButton.currentTitle == "Начали" else {
@@ -119,18 +121,19 @@ class GameViewController: UIViewController {
                 }
             }
             
-            //            wordLabel.text = questionBrain.question[0].text
-            //            questionBrain.deleteElementFromArray()
-            
-            world = questionBrain.question2.randomElement() ?? ""
-            wordLabel.text = world
-            questionBrain.deleteElementFromArray2(value: world)
+            updateWordsSet()
         }
         
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.isHidden = true
         //        changeHidden(bool: true)
+    }
+    
+    private func updateWordsSet() {
+        world = questionBrain.question2.randomElement() ?? ""
+        wordLabel.text = world
+        questionBrain.deleteElementFromArray2(value: world)
     }
 }
 
@@ -172,6 +175,7 @@ extension GameViewController {
         resultVC.modalTransitionStyle = .flipHorizontal
     }
 }
+
 //MARK: - Circular ProgressBar
 
 extension GameViewController {
@@ -183,3 +187,4 @@ extension GameViewController {
         view.addSubview(circularProgressBarView)
     }
 }
+
