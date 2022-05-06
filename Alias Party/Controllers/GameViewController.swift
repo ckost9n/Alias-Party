@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     var some = ActionList()
     var world = ""
     var choiceAction = ""
-
+    let CalculationScore = ScoreCalculation()
     var timer = Timer()
     var secondsRemaining = 10
     var questionBrain = questionsBrain()
@@ -30,6 +30,13 @@ class GameViewController: UIViewController {
         
     }
     
+    // MARK: - ScoreCalculations
+
+
+//    func totalScoreForEachTeam() -> Int {
+//    Для передачи счета по MVC
+//    }
+    
     private func setupViews() {
         actionLabel.isHidden = true
         changeHidden(bool: true)
@@ -44,27 +51,21 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
-//        wordLabel.text = questionBrain.question[0].text
-//        questionBrain.deleteElementFromArray()
-        
         world = questionBrain.question2.randomElement() ?? ""
         wordLabel.text = world
         questionBrain.deleteElementFromArray2(value: world)
+        ScoreCalculation.addUpScore()
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
-//        wordLabel.text = questionBrain.question[0].text
-//        questionBrain.deleteElementFromArray()
-        
         world = questionBrain.question2.randomElement() ?? ""
         wordLabel.text = world
         questionBrain.deleteElementFromArray2(value: world)
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        
-        // replace.array
-
+        ScoreCalculation.teamChanging()
+        // Надо скрыть кнопку сброса после смены команды,и почему вообще на кнопку сброса это должно происходить..
     }
     
     @IBAction func actionChanged(_ sender: UIButton) {
@@ -80,8 +81,10 @@ class GameViewController: UIViewController {
         
         if choiceAction == "Да" {
             print("Да")
+            ScoreCalculation.actionAddUpScore()
         } else if choiceAction == "Нет" {
             print("Нет")
+            substractAction()
         }
         
         guard startButton.currentTitle == "Начали" else {
@@ -166,3 +169,5 @@ extension GameViewController {
         resultVC.modalTransitionStyle = .flipHorizontal
     }
 }
+
+

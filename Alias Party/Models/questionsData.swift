@@ -47,7 +47,7 @@ struct questionsBrain {
     mutating func deleteElementFromArray() {
         if question.count > 1 {
             question.remove(at:0)
-            print(question)
+            print(question.count)
         }else {
             print("array is empty")
             question2 = Question2.getData()
