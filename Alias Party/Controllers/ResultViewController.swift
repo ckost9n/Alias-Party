@@ -10,8 +10,10 @@ import AVFoundation
 
 class ResultViewController: UIViewController, JokeManagerDelegate {
     
+    var soundManager = SoundManager()
+    
     var jokeManager = JokeManager()
-    var player: AVAudioPlayer!
+    
 
     @IBOutlet var checkLabel: UILabel!
     @IBOutlet var jokeLabel: UILabel!
@@ -30,16 +32,18 @@ class ResultViewController: UIViewController, JokeManagerDelegate {
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-        
+        soundManager.playSound(soundName: "button")
         
     }
     
     @IBAction func newGameButtonPressed(_ sender: UIButton) {
+        soundManager.playSound(soundName: "button")
         
     }
     
     @IBAction func goMainViewButtonPressed(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
+        soundManager.playSound(soundName: "button")
     }
     
     func didUpdateJoke(joke: JokeModel, punchline: JokeModel) {
@@ -50,16 +54,10 @@ class ResultViewController: UIViewController, JokeManagerDelegate {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
                 
                 self.jokeLabel.text! += "\n" + punchline.punchline
-                self.playSound()
+                self.soundManager.playSound(soundName: "jokeDrum1")
                 
             }
             
         }
-    }
-  
-    func playSound() {
-        let url = Bundle.main.url(forResource: "jokeDrum", withExtension: "mp3")
-        player = try! AVAudioPlayer(contentsOf: url!)
-        player.play()
     }
 }

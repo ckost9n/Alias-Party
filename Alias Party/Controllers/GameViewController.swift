@@ -11,6 +11,8 @@ import AudioToolbox
 
 class GameViewController: UIViewController {
     
+    var soundManager = SoundManager()
+    
     var some = ActionList()
     var world = ""
     var choiceAction = ""
@@ -61,15 +63,18 @@ class GameViewController: UIViewController {
         print("---------")
         print(calculationScore.addUpScore())
         print("---------")
+        soundManager.playSound(soundName: "right")
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
         updateWordsSet()
+        soundManager.playSound(soundName: "wrong")
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         print(calculationScore.teamChanging())
         // Надо скрыть кнопку сброса после смены команды,и почему вообще на кнопку сброса это должно происходить..
+        soundManager.playSound(soundName: "button")
     }
     
     @IBAction func actionChanged(_ sender: UIButton) {
@@ -79,6 +84,7 @@ class GameViewController: UIViewController {
         
         sender.isSelected = true
         choiceAction = sender.currentTitle ?? ""
+        soundManager.playSound(soundName: "button")
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
@@ -128,6 +134,7 @@ class GameViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.isHidden = true
         //        changeHidden(bool: true)
+        soundManager.playSound(soundName: "button")
     }
     
     private func updateWordsSet() {
