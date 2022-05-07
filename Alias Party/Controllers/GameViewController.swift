@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     var scoreTeamOne = 0
     var scoreTeamTwo = 0
     var timer = Timer()
-    var secondsRemaining = 1
+    var secondsRemaining = 10
     var questionBrain: WordsBrain?
     
     @IBOutlet var timerLabel: UILabel!
@@ -136,7 +136,7 @@ class GameViewController: UIViewController {
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         soundManager.playSound(soundName: "button")
-        
+        timer.invalidate()
         performSegue(withIdentifier: "goToScore", sender: self)
         
     }
@@ -251,7 +251,7 @@ extension GameViewController {
             startButton.setTitle("Следующий раунд", for: .normal)
             startButton.isHidden = false
             
-            secondsRemaining = 1
+            secondsRemaining = 10
             
             
             if actionLabel.isHidden == false {
