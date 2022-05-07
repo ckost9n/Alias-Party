@@ -87,6 +87,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xn5-KC-0nT"/>
+                    <connections>
+                        <outlet property="continueButton" destination="pZU-Qv-jVJ" id="CEs-RE-moe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
