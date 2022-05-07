@@ -17,8 +17,14 @@ class GameViewController: UIViewController {
     var word = ""
     var choiceActionAnswer = ""
     var choiceAction = ActionEnum.one
-    
+
+    var teamId = "TeamOne"
+    var scoreTeamOne = 0
+    var scoreTeamTwo = 0
+
+
     var calculationScore = ScoreCalculation()
+
     var timer = Timer()
     var secondsRemaining = 3
     var questionBrain: WordsBrain?
@@ -46,11 +52,59 @@ class GameViewController: UIViewController {
     }
     
     // MARK: - ScoreCalculations
-    
-    
-    //    func totalScoreForEachTeam() -> Int {
-    //    Для передачи счета по MVC
-    //    }
+
+
+    func addUpScore() {
+        if teamId == "TeamOne" {
+            scoreTeamOne += 1
+            print("Счет первой команды: \(scoreTeamOne)")
+            
+        } else if teamId == "TeamTwo" {
+            scoreTeamTwo += 1
+            print("Счет второй команды: \(scoreTeamTwo)")
+            
+        } else {
+            print("What`s happend")
+            
+        }
+    }
+     func actionAddUpScore() {
+        if teamId == "TeamOne" {
+            scoreTeamOne += 3
+            print("Прибавка от действия первой команде")
+            
+        } else if teamId == "TeamTwo"{
+            scoreTeamTwo += 3
+            print("Прибавка от действия второй команде")
+            
+        } else{
+            print("What`s happend in actionAddUpScore()")
+            
+        }
+    }
+     func substractAction() {
+        if teamId == "TeamOne"{
+            scoreTeamOne -= 1
+            print("Отнятие 1 от счета первой команды")
+            
+        } else if teamId == "TeamTwo"{
+            scoreTeamTwo -= 1
+            print("Отнятие 1 от счета второй команды")
+            
+        } else{
+            print("What`s happend in substractAction()")
+            
+        }
+    }
+    func teamChanging() {
+        if teamId == "TeamOne" {
+            teamId = "TeamTwo"
+            
+        } else{
+            teamId = "TeamOne"
+            
+        }
+    }
     
     private func setupViews() {
         actionLabel.isHidden = true
@@ -76,10 +130,10 @@ class GameViewController: UIViewController {
     @IBAction func rightButtonPressed(_ sender: UIButton) {
         if sender.currentTitle == "Отгадали" {
             updateWordsSet()
-            print(calculationScore.addUpScore())
+            addUpScore()
             soundManager.playSound(soundName: "right")
         } else {
-            // реализовать +3 очка
+            actionAddUpScore()
             rightButton.setTitle("Отгадали", for: .normal)
             rightButton.isHidden = true
             wrongButton.isHidden = true
@@ -93,7 +147,7 @@ class GameViewController: UIViewController {
             updateWordsSet()
             soundManager.playSound(soundName: "wrong")
         } else {
-            // реализовать -3 очка
+            substractAction()
             wrongButton.setTitle("Не отгадали", for: .normal)
             rightButton.isHidden = true
             wrongButton.isHidden = true
@@ -106,10 +160,8 @@ class GameViewController: UIViewController {
         
         if choiceActionAnswer == "Да" {
             print("Да")
-            print(calculationScore.actionAddUpScore())
         } else if choiceActionAnswer == "Нет" {
             print("Нет")
-            print(calculationScore.substractAction())
         }
         
         performSegue(withIdentifier: "goToScore", sender: self)
@@ -151,16 +203,16 @@ class GameViewController: UIViewController {
         wrongButton.isHidden = false
             self.timerLabel.text = String(self.secondsRemaining)
         
-        print(calculationScore.teamChanging())
+        teamChanging()
         
         setupCircularProgressBarView()
         
         if choiceActionAnswer == "Да" {
             print("Да")
-            print(calculationScore.actionAddUpScore())
+            actionAddUpScore()
         } else if choiceActionAnswer == "Нет" {
             print("Нет")
-            print(calculationScore.substractAction())
+            substractAction()
         }
         
         if some.actions.isEmpty {
