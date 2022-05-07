@@ -137,6 +137,7 @@ class GameViewController: UIViewController {
             addUpScore()
             soundManager.playSound(soundName: "right")
         }else if sender.currentTitle == "Команда 1" {
+            // или эту
             addOneToTeamOne()
         }
         
@@ -155,6 +156,7 @@ class GameViewController: UIViewController {
             updateWordsSet()
             soundManager.playSound(soundName: "wrong")
         }else if sender.currentTitle == "Команда 2" {
+            // надо локать кнопку которую нажмут эту
             addOneToTeamTwo()
         }
         else {
