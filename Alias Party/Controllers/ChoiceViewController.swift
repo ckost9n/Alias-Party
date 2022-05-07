@@ -8,6 +8,7 @@
 import UIKit
 
 class ChoiceViewController: UIViewController {
+    var soundManager = SoundManager()
 
     @IBOutlet var buttonChoiceCollection: [UIButton]!
     
@@ -57,6 +58,7 @@ class ChoiceViewController: UIViewController {
         }
         
         performSegue(withIdentifier: "goToGameVC", sender: self)
+        soundManager.playSound(soundName: "button")
     }
     
 }
