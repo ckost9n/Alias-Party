@@ -17,10 +17,10 @@ class GameViewController: UIViewController {
     var word = ""
     var choiceActionAnswer = ""
     var choiceAction = ActionEnum.one
-
+    
     var calculationScore = ScoreCalculation()
     var timer = Timer()
-    var secondsRemaining = 2
+    var secondsRemaining = 5
     var questionBrain: WordsBrain?
     
     @IBOutlet var timerLabel: UILabel!
@@ -46,11 +46,11 @@ class GameViewController: UIViewController {
     }
     
     // MARK: - ScoreCalculations
-
-
-//    func totalScoreForEachTeam() -> Int {
-//    Для передачи счета по MVC
-//    }
+    
+    
+    //    func totalScoreForEachTeam() -> Int {
+    //    Для передачи счета по MVC
+    //    }
     
     private func setupViews() {
         actionLabel.isHidden = true
@@ -111,10 +111,10 @@ class GameViewController: UIViewController {
         
         performSegue(withIdentifier: "goToScore", sender: self)
         
-//        guard startButton.currentTitle == "Начали" else {
-//            performSegue(withIdentifier: "goToScore", sender: self)
-//            return
-//        }
+        //        guard startButton.currentTitle == "Начали" else {
+        //            performSegue(withIdentifier: "goToScore", sender: self)
+        //            return
+        //        }
     }
     
     @IBAction func actionChanged(_ sender: UIButton) {
@@ -128,6 +128,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        
         
         rightButton.isHidden = false
         wrongButton.isHidden = false
@@ -145,7 +146,8 @@ class GameViewController: UIViewController {
         }
         
         guard startButton.currentTitle == "Начали" else {
-//            performSegue(withIdentifier: "goToScore", sender: self)
+            //            performSegue(withIdentifier: "goToScore", sender: self)
+            
             return
         }
         
@@ -155,16 +157,16 @@ class GameViewController: UIViewController {
         } else {
             
             actionLabel.text = some.actions[Int.random(in: 0..<some.actions.count)]
-            let startButtonPressedCount = Int.random(in: 0..<some.actions.count)
+            let randomNumberFromArray = Int.random(in: 0..<some.actions.count)
             
             if let indexOfAction = some.actions.firstIndex(of: actionLabel.text!) {
-                print(startButtonPressedCount)
+                print(randomNumberFromArray)
                 print(indexOfAction)
                 print(some.actions.count)
                 
                 some.actions.remove(at: indexOfAction)
                 
-                if startButtonPressedCount == indexOfAction {
+                if randomNumberFromArray == indexOfAction {
                     actionLabel.isHidden = false
                     
                 } else {
@@ -174,9 +176,8 @@ class GameViewController: UIViewController {
             
             updateWordsSet()
         }
+        createTimer()
         
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         startButton.isHidden = true
         //        changeHidden(bool: true)
         soundManager.playSound(soundName: "button")
@@ -211,6 +212,7 @@ extension GameViewController {
             timer.invalidate()
             startButton.setTitle("Следующий раунд", for: .normal)
             startButton.isHidden = false
+            secondsRemaining = 5
             
             if actionLabel.isHidden == false {
                 changeHidden(bool: false)
@@ -223,6 +225,7 @@ extension GameViewController {
             
             rightButton.setTitle("Команда 1", for: .normal)
             wrongButton.setTitle("Команда 2", for: .normal)
+            
         }
     }
 }
