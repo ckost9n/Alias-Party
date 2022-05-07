@@ -25,8 +25,14 @@ class GameViewController: UIViewController {
     
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
+    @IBOutlet var actionQuestionLabel: UILabel!
     @IBOutlet var wordLabel: UILabel!
     @IBOutlet var startButton: UIButton!
+    
+    @IBOutlet var rightButton: UIButton!
+    @IBOutlet var wrongButton: UIButton!
+    @IBOutlet var teamOneButton: UIButton!
+    @IBOutlet var teamTwoButton: UIButton!
     
     @IBOutlet var buttonActionCollection: [UIButton]!
     
@@ -52,9 +58,22 @@ class GameViewController: UIViewController {
         changeHidden(bool: true)
         timerLabel.text = String(secondsRemaining)
         navigationItem.title = "Alfa"
+        
+        teamOneButton.isHidden = true
+        teamTwoButton.isHidden = true
+//        rightButton.isHidden = false
+//        wrongButton.isHidden = false
+    }
+    
+    private func changeHiddenTeam() {
+        rightButton.isHidden.toggle()
+        wrongButton.isHidden.toggle()
+        teamOneButton.isHidden.toggle()
+        teamTwoButton.isHidden.toggle()
     }
     
     private func changeHidden(bool: Bool) {
+        actionQuestionLabel.isHidden = bool
         for button in buttonActionCollection {
             button.isHidden = bool
         }
@@ -87,6 +106,14 @@ class GameViewController: UIViewController {
         sender.isSelected = true
         choiceActionAnswer = sender.currentTitle ?? ""
         soundManager.playSound(soundName: "button")
+    }
+    
+    @IBAction func teamOneButtonTapped(_ sender: UIButton) {
+        print(#function)
+    }
+    
+    @IBAction func teamTwoButtonTapped(_ sender: UIButton) {
+        print(#function)
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
@@ -172,6 +199,7 @@ extension GameViewController {
             if actionLabel.isHidden == false {
                 changeHidden(bool: false)
             }
+            changeHiddenTeam()
         }
     }
 }

@@ -104,10 +104,40 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="udq-Em-zQh">
-                                <rect key="frame" x="22" y="692" width="370" height="55"/>
+                                <rect key="frame" x="-168" y="692" width="750" height="55"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIS-Yt-C7q">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uy-6j-atK">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="lTW-dT-Oo9"/>
+                                            <constraint firstAttribute="height" constant="55" id="wEL-dr-GMT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Команда 1" backgroundImage="green5BtnWGF"/>
+                                        <connections>
+                                            <action selector="rightButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="oWv-vw-aKu"/>
+                                            <action selector="teamOneButtonTapped:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="pGF-SG-YBg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qR9-4d-JLa">
+                                        <rect key="frame" x="190" y="0.0" width="180" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="DfB-r5-BPN"/>
+                                            <constraint firstAttribute="height" constant="55" id="HL2-C5-eDd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Команда 2" backgroundImage="redBtnWGF"/>
+                                        <connections>
+                                            <action selector="teamTwoButtonTapped:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="nct-mo-l62"/>
+                                            <action selector="wrongButtonPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="LG8-40-STJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIS-Yt-C7q">
+                                        <rect key="frame" x="380" y="0.0" width="180" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="JrP-V2-Luk"/>
                                             <constraint firstAttribute="width" constant="180" id="xbR-lL-zlT"/>
@@ -121,7 +151,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXl-NJ-YDB">
-                                        <rect key="frame" x="190" y="0.0" width="180" height="55"/>
+                                        <rect key="frame" x="570" y="0.0" width="180" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="96k-bf-Nf1"/>
                                             <constraint firstAttribute="height" constant="55" id="urP-Vs-8AH"/>
@@ -252,9 +282,14 @@
                     <navigationItem key="navigationItem" title="Команда" id="nbN-CN-DlN"/>
                     <connections>
                         <outlet property="actionLabel" destination="Pcp-Nq-s1a" id="gdg-Ls-eyi"/>
+                        <outlet property="actionQuestionLabel" destination="pBg-Hw-puM" id="czN-gb-Ppn"/>
+                        <outlet property="rightButton" destination="hIS-Yt-C7q" id="kAS-To-Brt"/>
                         <outlet property="startButton" destination="yp3-Yq-2LX" id="nAk-M6-NaR"/>
+                        <outlet property="teamOneButton" destination="8Uy-6j-atK" id="lBy-pA-vWf"/>
+                        <outlet property="teamTwoButton" destination="qR9-4d-JLa" id="czg-eZ-5Lk"/>
                         <outlet property="timerLabel" destination="xOG-Ig-E0n" id="ee0-FS-A2T"/>
                         <outlet property="wordLabel" destination="FGS-KF-aol" id="a7y-6s-yhG"/>
+                        <outlet property="wrongButton" destination="dXl-NJ-YDB" id="G53-zc-jtI"/>
                         <outletCollection property="buttonActionCollection" destination="ECp-w1-Eki" collectionClass="NSMutableArray" id="DhV-S1-7OK"/>
                         <outletCollection property="buttonActionCollection" destination="n0a-ca-jOB" collectionClass="NSMutableArray" id="fmg-Ho-XVu"/>
                         <segue destination="JZT-i7-8nL" kind="show" identifier="goToScore" id="JGm-Vg-BFR"/>
