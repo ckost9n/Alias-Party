@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j6U-1e-msx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j6U-1e-msx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -190,7 +190,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Да" backgroundImage="green5BtnWGF"/>
                                         <connections>
-                                            <action selector="actionChanged:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="g8F-c7-1cj"/>
+                                            <action selector="buttonYesPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="dlb-CV-2rK"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0a-ca-jOB">
@@ -204,7 +204,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Нет" backgroundImage="redBtnWGF"/>
                                         <connections>
-                                            <action selector="actionChanged:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="c4b-6g-ELi"/>
+                                            <action selector="buttonNoPressed:" destination="Hbx-LW-5Jo" eventType="touchUpInside" id="6vg-Yx-Iqo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -253,6 +253,8 @@
                     <connections>
                         <outlet property="actionLabel" destination="Pcp-Nq-s1a" id="gdg-Ls-eyi"/>
                         <outlet property="actionQuestionLabel" destination="pBg-Hw-puM" id="czN-gb-Ppn"/>
+                        <outlet property="buttonNo" destination="n0a-ca-jOB" id="OXg-SF-9N4"/>
+                        <outlet property="buttonYes" destination="ECp-w1-Eki" id="Wbt-Hp-AGD"/>
                         <outlet property="nextRoundButton" destination="wvN-jZ-DYH" id="urv-lk-RXn"/>
                         <outlet property="rightButton" destination="hIS-Yt-C7q" id="kAS-To-Brt"/>
                         <outlet property="startButton" destination="yp3-Yq-2LX" id="nAk-M6-NaR"/>
@@ -351,8 +353,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Команада" id="Dwk-iK-Prq"/>
                     <connections>
-                        <outlet property="checkLabel" destination="pms-He-9TO" id="ZIt-OI-R4W"/>
                         <outlet property="jokeLabel" destination="kwn-mS-xXL" id="t5g-S9-Xf8"/>
+                        <outlet property="teamOneScore" destination="pms-He-9TO" id="ZIt-OI-R4W"/>
+                        <outlet property="teamTwoScore" destination="jdO-br-Yo2" id="We4-H5-SBk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BR5-En-S8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

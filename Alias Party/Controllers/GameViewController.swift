@@ -12,17 +12,17 @@ import AudioToolbox
 class GameViewController: UIViewController {
     
     var soundManager = SoundManager()
-   
+    
     var some = ActionList()
     var word = ""
     var choiceActionAnswer = ""
     var choiceAction = ActionEnum.one
-
+    
     var teamId = "TeamTwo"
     var scoreTeamOne = 0
     var scoreTeamTwo = 0
     var timer = Timer()
-    var secondsRemaining = 3
+    var secondsRemaining = 1
     var questionBrain: WordsBrain?
     
     @IBOutlet var timerLabel: UILabel!
@@ -37,6 +37,9 @@ class GameViewController: UIViewController {
     
     @IBOutlet var buttonActionCollection: [UIButton]!
     
+    @IBOutlet var buttonYes: UIButton!
+    @IBOutlet var buttonNo: UIButton!
+    
     var circularProgressBarView: CircularProgressBar!
     var circularViewDuration: Double = 0
     
@@ -48,8 +51,8 @@ class GameViewController: UIViewController {
     }
     
     // MARK: - ScoreCalculations
-
-
+    
+    
     func addUpScore() {
         if teamId == "TeamOne" {
             scoreTeamOne += 1
@@ -64,34 +67,7 @@ class GameViewController: UIViewController {
             
         }
     }
-     func actionAddUpScore() {
-        if teamId == "TeamOne" {
-            scoreTeamOne += 3
-            print("Прибавка от действия первой команде")
-            
-        } else if teamId == "TeamTwo"{
-            scoreTeamTwo += 3
-            print("Прибавка от действия второй команде")
-            
-        } else{
-            print("What`s happend in actionAddUpScore()")
-            
-        }
-    }
-     func substractAction() {
-        if teamId == "TeamOne"{
-            scoreTeamOne -= 1
-            print("Отнятие 1 от счета первой команды")
-            
-        } else if teamId == "TeamTwo"{
-            scoreTeamTwo -= 1
-            print("Отнятие 1 от счета второй команды")
-            
-        } else{
-            print("What`s happend in substractAction()")
-            
-        }
-    }
+    
     func addOneToTeamOne() {
         scoreTeamOne += 1
         print("Прибавка 1 первой команде от кнопки Команда 1 ")
@@ -139,10 +115,7 @@ class GameViewController: UIViewController {
         }else if sender.currentTitle == "Команда 1" {
             // или эту
             addOneToTeamOne()
-        }
-        
-        else {
-            actionAddUpScore()
+        } else {
             rightButton.setTitle("Отгадали", for: .normal)
             rightButton.isHidden = true
             wrongButton.isHidden = true
@@ -158,9 +131,8 @@ class GameViewController: UIViewController {
         }else if sender.currentTitle == "Команда 2" {
             // надо локать кнопку которую нажмут эту
             addOneToTeamTwo()
-        }
-        else {
-            substractAction()
+        }else {
+            
             wrongButton.setTitle("Не отгадали", for: .normal)
             rightButton.isHidden = true
             wrongButton.isHidden = true
@@ -170,37 +142,37 @@ class GameViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         soundManager.playSound(soundName: "button")
         
-        if choiceActionAnswer == "Да" {
-            print("Да")
-        } else if choiceActionAnswer == "Нет" {
-            print("Нет")
-        }
-        
         performSegue(withIdentifier: "goToScore", sender: self)
         
-        //        guard startButton.currentTitle == "Начали" else {
-        //            performSegue(withIdentifier: "goToScore", sender: self)
-        //            return
-        //        }
     }
     
-    @IBAction func actionChanged(_ sender: UIButton) {
-        for button in buttonActionCollection {
-            button.isSelected = false
+    @IBAction func buttonYesPressed(_ sender: UIButton){
+        if teamId == "TeamOne" {
+            scoreTeamOne += 3
+        }else {
+            scoreTeamTwo += 3
         }
         
-        sender.isSelected = true
-        choiceActionAnswer = sender.currentTitle ?? ""
+        buttonYes.isHidden = true
+        buttonNo.isHidden = true
+        actionQuestionLabel.isHidden = true
         soundManager.playSound(soundName: "button")
     }
+    @IBAction func buttonNoPressed(_ sender: UIButton){
+        buttonYes.isHidden = true
+        buttonNo.isHidden = true
+        actionQuestionLabel.isHidden = true
+        soundManager.playSound(soundName: "button")
+    }
+    
     
     @IBAction func startButtonAction(_ sender: UIButton) {
         timerLabel.isHidden = false
         wordLabel.isHidden = false
         
         if sender.currentTitle == "Начали"{
+            
             createTimer()
-           
             
         } else if sender.currentTitle == "Следующий раунд" {
             
@@ -210,22 +182,13 @@ class GameViewController: UIViewController {
             createTimer()
         }
         
-
         rightButton.isHidden = false
         wrongButton.isHidden = false
-            self.timerLabel.text = String(self.secondsRemaining)
+        self.timerLabel.text = String(self.secondsRemaining)
         
         teamChanging()
         
         setupCircularProgressBarView()
-        
-        if choiceActionAnswer == "Да" {
-            print("Да")
-            actionAddUpScore()
-        } else if choiceActionAnswer == "Нет" {
-            print("Нет")
-            substractAction()
-        }
         
         if some.actions.isEmpty {
             actionLabel.isHidden = true
@@ -252,7 +215,7 @@ class GameViewController: UIViewController {
             
             updateWordsSet()
         }
-     
+        
         
         startButton.isHidden = true
         //        changeHidden(bool: true)
@@ -293,9 +256,7 @@ extension GameViewController {
             startButton.setTitle("Следующий раунд", for: .normal)
             startButton.isHidden = false
             
-            secondsRemaining = 3
-            
-           
+            secondsRemaining = 1
             
             
             if actionLabel.isHidden == false {
@@ -304,7 +265,7 @@ extension GameViewController {
             
             nextRoundButton.isHidden = false
             
-            // MARK: - Настройка кнопок команд
+// MARK: - Настройка кнопок команд
             
             
             rightButton.setTitle("Команда 1", for: .normal)
@@ -320,6 +281,8 @@ extension GameViewController {
         guard let resultVC = segue.destination as? ResultViewController else { return }
         resultVC.modalPresentationStyle = .fullScreen
         resultVC.modalTransitionStyle = .flipHorizontal
+        resultVC.teamOneScoreInt = scoreTeamOne
+        resultVC.teamTwoSCoreInt = scoreTeamTwo
     }
 }
 
@@ -334,4 +297,5 @@ extension GameViewController {
         view.addSubview(circularProgressBarView)
     }
 }
+
 
