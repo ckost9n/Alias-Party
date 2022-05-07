@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j6U-1e-msx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j6U-1e-msx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,7 +48,7 @@
                                         <state key="normal" title="Новая игра" backgroundImage="red3ButtonWGF"/>
                                         <connections>
                                             <action selector="newGamePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q4h-oF-4y9"/>
-                                            <segue destination="AfU-Mh-m5X" kind="show" id="pcW-02-EhB"/>
+                                            <segue destination="iKf-ot-Wdk" kind="show" id="FVq-HN-PCw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaV-r4-FBp">
@@ -91,38 +91,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="81.696428571428569"/>
-        </scene>
-        <!--Выберите тематику слов!-->
-        <scene sceneID="x6Z-5z-YIt">
-            <objects>
-                <tableViewController id="AfU-Mh-m5X" customClass="ChoiceTableViewController" customModule="Alias_Party" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ige-SR-yOi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="2Qo-aF-eVp">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Qo-aF-eVp" id="tax-ch-4JI">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Hbx-LW-5Jo" kind="show" id="THK-fC-veo"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="AfU-Mh-m5X" id="fkc-vQ-5iJ"/>
-                            <outlet property="delegate" destination="AfU-Mh-m5X" id="rkx-aB-CJM"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Выберите тематику слов!" id="Nif-rP-x0Y"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PWe-i1-lAQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1832" y="-615"/>
         </scene>
         <!--Команда-->
         <scene sceneID="EVv-SC-35E">
@@ -540,10 +508,10 @@
             </objects>
             <point key="canvasLocation" x="53.623188405797109" y="81.696428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Choice View Controller-->
         <scene sceneID="eMq-Dm-8L6">
             <objects>
-                <viewController id="iKf-ot-Wdk" sceneMemberID="viewController">
+                <viewController id="iKf-ot-Wdk" customClass="ChoiceViewController" customModule="Alias_Party" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pwc-JI-MiT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -553,45 +521,73 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1j2-2C-SWK">
-                                <rect key="frame" x="35" y="244" width="344" height="518"/>
+                                <rect key="frame" x="35" y="288" width="344" height="474"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-Be-yHp">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="87.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="79"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="colorTest" backgroundImage="yellow2BtnWGF">
                                             <color key="titleColor" systemColor="systemMintColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="choiceButtonPressed:" destination="wE9-dA-sTH" eventType="touchUpInside" id="TqM-GV-73j"/>
+                                            <action selector="choiceButtonPressed:" destination="iKf-ot-Wdk" eventType="touchUpInside" id="Tus-b3-ikO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaQ-CF-OKo">
-                                        <rect key="frame" x="0.0" y="107.5" width="344" height="87.5"/>
+                                        <rect key="frame" x="0.0" y="99" width="344" height="78.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="category 2" backgroundImage="yellow2BtnWGF"/>
+                                        <state key="normal" title="category 2" backgroundImage="yellow2BtnWGF">
+                                            <color key="titleColor" systemColor="systemMintColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choiceButtonPressed:" destination="iKf-ot-Wdk" eventType="touchUpInside" id="fLD-qG-b3l"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNf-kC-Yru">
-                                        <rect key="frame" x="0.0" y="215" width="344" height="88"/>
+                                        <rect key="frame" x="0.0" y="197.5" width="344" height="79"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="category 3" backgroundImage="yellow2BtnWGF"/>
+                                        <state key="normal" title="category 3" backgroundImage="yellow2BtnWGF">
+                                            <color key="titleColor" systemColor="systemMintColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choiceButtonPressed:" destination="iKf-ot-Wdk" eventType="touchUpInside" id="6Zi-u3-cAH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWE-gU-ueL">
-                                        <rect key="frame" x="0.0" y="323" width="344" height="87.5"/>
+                                        <rect key="frame" x="0.0" y="296.5" width="344" height="78.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="category 4" backgroundImage="yellow2BtnWGF"/>
+                                        <state key="normal" title="category 4" backgroundImage="yellow2BtnWGF">
+                                            <color key="titleColor" systemColor="systemMintColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choiceButtonPressed:" destination="iKf-ot-Wdk" eventType="touchUpInside" id="LGl-Mm-URc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7E-3s-qHS">
-                                        <rect key="frame" x="0.0" y="430.5" width="344" height="87.5"/>
+                                        <rect key="frame" x="0.0" y="395" width="344" height="79"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="category 5" backgroundImage="yellow2BtnWGF"/>
+                                        <state key="normal" title="Дальше" backgroundImage="yellow2BtnWGF">
+                                            <color key="titleColor" systemColor="systemMintColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="iKf-ot-Wdk" eventType="touchUpInside" id="fE4-Cm-Sci"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выбор тематики" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E49-dW-WvC">
-                                <rect key="frame" x="60" y="150.5" width="294" height="43.5"/>
+                                <rect key="frame" x="60" y="194.5" width="294" height="43.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -609,10 +605,19 @@
                             <constraint firstItem="iW9-C1-jj7" firstAttribute="trailing" secondItem="1j2-2C-SWK" secondAttribute="trailing" constant="35" id="oAg-bf-hdI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aPE-vc-hN3"/>
+                    <connections>
+                        <outletCollection property="buttonChoiceCollection" destination="fu1-Be-yHp" collectionClass="NSMutableArray" id="dJn-aZ-yaP"/>
+                        <outletCollection property="buttonChoiceCollection" destination="HaQ-CF-OKo" collectionClass="NSMutableArray" id="Wdc-9N-7tf"/>
+                        <outletCollection property="buttonChoiceCollection" destination="eNf-kC-Yru" collectionClass="NSMutableArray" id="Mdt-i4-2a9"/>
+                        <outletCollection property="buttonChoiceCollection" destination="xWE-gU-ueL" collectionClass="NSMutableArray" id="3uk-Xm-zga"/>
+                        <segue destination="Hbx-LW-5Jo" kind="show" identifier="goToGameVC" id="1dq-aY-trf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I37-QJ-xh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wE9-dA-sTH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="110"/>
+            <point key="canvasLocation" x="1832" y="82"/>
         </scene>
     </scenes>
     <resources>

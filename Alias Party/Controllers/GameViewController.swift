@@ -14,13 +14,14 @@ class GameViewController: UIViewController {
     var soundManager = SoundManager()
     
     var some = ActionList()
-    var world = ""
-    var choiceAction = ""
+    var word = ""
+    var choiceActionAnswer = ""
+    var choiceAction = ActionEnum.one
 
     var calculationScore = ScoreCalculation()
     var timer = Timer()
     var secondsRemaining = 2
-    var questionBrain = questionsBrain()
+    var questionBrain: WordsBrain?
     
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var actionLabel: UILabel!
@@ -35,6 +36,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        questionBrain = WordsBrain(action: choiceAction)
         navigationItem.hidesBackButton = true
     }
     
@@ -83,7 +85,7 @@ class GameViewController: UIViewController {
         }
         
         sender.isSelected = true
-        choiceAction = sender.currentTitle ?? ""
+        choiceActionAnswer = sender.currentTitle ?? ""
         soundManager.playSound(soundName: "button")
     }
     
@@ -91,10 +93,10 @@ class GameViewController: UIViewController {
         
         setupCircularProgressBarView()
         
-        if choiceAction == "Да" {
+        if choiceActionAnswer == "Да" {
             print("Да")
             print(calculationScore.actionAddUpScore())
-        } else if choiceAction == "Нет" {
+        } else if choiceActionAnswer == "Нет" {
             print("Нет")
             print(calculationScore.substractAction())
         }
@@ -138,9 +140,9 @@ class GameViewController: UIViewController {
     }
     
     private func updateWordsSet() {
-        world = questionBrain.question2.randomElement() ?? ""
-        wordLabel.text = world
-        questionBrain.deleteElementFromArray2(value: world)
+        word = questionBrain?.words.randomElement() ?? ""
+        wordLabel.text = word
+        questionBrain?.deleteElementFromWords(value: word)
     }
 }
 
