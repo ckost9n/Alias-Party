@@ -65,12 +65,12 @@ class GameViewController: UIViewController {
 //        wrongButton.isHidden = false
     }
     
-    private func changeHiddenTeam() {
-        rightButton.isHidden.toggle()
-        wrongButton.isHidden.toggle()
-        teamOneButton.isHidden.toggle()
-        teamTwoButton.isHidden.toggle()
-    }
+//    private func changeHiddenTeam() {
+//        rightButton.isHidden.toggle()
+//        wrongButton.isHidden.toggle()
+//        teamOneButton.isHidden.toggle()
+//        teamTwoButton.isHidden.toggle()
+//    }
     
     private func changeHidden(bool: Bool) {
         actionQuestionLabel.isHidden = bool
@@ -80,6 +80,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
+        print(#function)
         updateWordsSet()
         print("---------")
         print(calculationScore.addUpScore())
@@ -88,6 +89,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
+        print(#function)
         updateWordsSet()
         soundManager.playSound(soundName: "wrong")
     }
@@ -117,6 +119,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        
+        print(#function)
         
         setupCircularProgressBarView()
         
@@ -199,7 +203,7 @@ extension GameViewController {
             if actionLabel.isHidden == false {
                 changeHidden(bool: false)
             }
-            changeHiddenTeam()
+//            changeHiddenTeam()
         }
     }
 }
