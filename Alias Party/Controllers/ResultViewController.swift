@@ -11,12 +11,10 @@ import AVFoundation
 class ResultViewController: UIViewController {
     
     var soundManager = SoundManager()
-    
+    var wordBrain = ScoreCalculate()
     var jokeManager = JokeManager()
     
-    var teamOneScoreInt = 0
-    var teamTwoSCoreInt = 0
-
+    
    @IBOutlet var teamOneScore: UILabel!
     @IBOutlet var teamTwoScore: UILabel!
     
@@ -24,8 +22,11 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        teamOneScore.text = String(teamOneScoreInt)
-        teamTwoScore.text = String(teamTwoSCoreInt)
+        
+        let scoreTeamOne = String(wordBrain.getScoreTeamOne())
+        let scoreTeamTwo = String(wordBrain.getScoreTeamTwo())
+        teamOneScore.text = scoreTeamOne
+        teamTwoScore.text = scoreTeamTwo
         
 
         setupViews()
@@ -35,7 +36,7 @@ class ResultViewController: UIViewController {
     private func setupViews() {
         jokeManager.delegate = self
         jokeManager.getJoke()
-        navigationItem.title = "Alfa"
+        navigationItem.title = "Результаты"
         navigationItem.hidesBackButton = true
     }
     

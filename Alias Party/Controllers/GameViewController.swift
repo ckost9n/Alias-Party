@@ -12,15 +12,11 @@ import AudioToolbox
 class GameViewController: UIViewController {
     
     var soundManager = SoundManager()
-    
+    var wordBrain = ScoreCalculate()
     var some = ActionList()
     var word = ""
     var choiceActionAnswer = ""
     var choiceAction = ActionEnum.one
-    
-    var teamId = "TeamTwo"
-    var scoreTeamOne = 0
-    var scoreTeamTwo = 0
     
     var timer = Timer()
     var secondsRemaining = 10
@@ -51,42 +47,6 @@ class GameViewController: UIViewController {
         
     }
     
-    // MARK: - ScoreCalculations
-    
-    
-    func addUpScore() {
-        if teamId == "TeamOne" {
-            scoreTeamOne += 1
-            print("Счет первой команды: \(scoreTeamOne)")
-            
-        } else if teamId == "TeamTwo" {
-            scoreTeamTwo += 1
-            print("Счет второй команды: \(scoreTeamTwo)")
-            
-        } else {
-            print("What`s happend")
-            
-        }
-    }
-    
-    func addOneToTeamOne() {
-        scoreTeamOne += 1
-        print("Прибавка 1 первой команде от кнопки Команда 1 ")
-    }
-    func addOneToTeamTwo() {
-        scoreTeamTwo += 1
-        print("Прибавка 1 второй команде от кнопки Команда 2 ")
-    }
-    func teamChanging() {
-        if teamId == "TeamOne" {
-            teamId = "TeamTwo"
-            
-        } else{
-            teamId = "TeamOne"
-            
-        }
-    }
-    
     private func setupViews() {
         actionLabel.isHidden = true
         changeHidden(bool: true)
@@ -111,11 +71,11 @@ class GameViewController: UIViewController {
     @IBAction func rightButtonPressed(_ sender: UIButton) {
         if sender.currentTitle == "Отгадали" {
             updateWordsSet()
-            addUpScore()
+            wordBrain.addUpScore()
             soundManager.playSound(soundName: "right")
         }else if sender.currentTitle == "Команда 1" {
             // или эту
-            addOneToTeamOne()
+            wordBrain.addOneToTeamOne()
             rightButton.isHidden = true
             wrongButton.isHidden = true
         }
@@ -129,7 +89,7 @@ class GameViewController: UIViewController {
             soundManager.playSound(soundName: "wrong")
         }else if sender.currentTitle == "Команда 2" {
             
-            addOneToTeamTwo()
+            wordBrain.addOneToTeamTwo()
             rightButton.isHidden = true
             wrongButton.isHidden = true
         }
@@ -143,18 +103,14 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func buttonYesPressed(_ sender: UIButton){
-        if teamId == "TeamOne" {
-            scoreTeamOne += 3
-        }else {
-            scoreTeamTwo += 3
-        }
-        
+        wordBrain.addUpScoreAction()
         buttonYes.isHidden = true
         buttonNo.isHidden = true
         actionQuestionLabel.isHidden = true
         soundManager.playSound(soundName: "button")
     }
     @IBAction func buttonNoPressed(_ sender: UIButton){
+        
         buttonYes.isHidden = true
         buttonNo.isHidden = true
         actionQuestionLabel.isHidden = true
@@ -182,7 +138,7 @@ class GameViewController: UIViewController {
         wrongButton.isHidden = false
         self.timerLabel.text = String(self.secondsRemaining)
         
-        teamChanging()
+        wordBrain.teamChanging()
         
         setupCircularProgressBarView()
         
@@ -277,8 +233,6 @@ extension GameViewController {
         guard let resultVC = segue.destination as? ResultViewController else { return }
         resultVC.modalPresentationStyle = .fullScreen
         resultVC.modalTransitionStyle = .flipHorizontal
-        resultVC.teamOneScoreInt = scoreTeamOne
-        resultVC.teamTwoSCoreInt = scoreTeamTwo
     }
 }
 
