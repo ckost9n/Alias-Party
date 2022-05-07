@@ -29,6 +29,7 @@ class ResultViewController: UIViewController, JokeManagerDelegate {
         jokeManager.delegate = self
         jokeManager.getJoke()
         navigationItem.title = "Alfa"
+        navigationItem.hidesBackButton = true
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
