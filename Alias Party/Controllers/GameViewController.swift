@@ -115,8 +115,6 @@ class GameViewController: UIViewController {
         }else if sender.currentTitle == "Команда 1" {
             // или эту
             addOneToTeamOne()
-        } else {
-            rightButton.setTitle("Отгадали", for: .normal)
             rightButton.isHidden = true
             wrongButton.isHidden = true
         }
@@ -129,11 +127,8 @@ class GameViewController: UIViewController {
             updateWordsSet()
             soundManager.playSound(soundName: "wrong")
         }else if sender.currentTitle == "Команда 2" {
-            // надо локать кнопку которую нажмут эту
-            addOneToTeamTwo()
-        }else {
             
-            wrongButton.setTitle("Не отгадали", for: .normal)
+            addOneToTeamTwo()
             rightButton.isHidden = true
             wrongButton.isHidden = true
         }
