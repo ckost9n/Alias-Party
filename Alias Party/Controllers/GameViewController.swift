@@ -18,13 +18,9 @@ class GameViewController: UIViewController {
     var choiceActionAnswer = ""
     var choiceAction = ActionEnum.one
 
-    var teamId = "TeamOne"
+    var teamId = "TeamTwo"
     var scoreTeamOne = 0
     var scoreTeamTwo = 0
-
-
-    var calculationScore = ScoreCalculation()
-
     var timer = Timer()
     var secondsRemaining = 3
     var questionBrain: WordsBrain?
@@ -96,6 +92,14 @@ class GameViewController: UIViewController {
             
         }
     }
+    func addOneToTeamOne() {
+        scoreTeamOne += 1
+        print("Прибавка 1 первой команде от кнопки Команда 1 ")
+    }
+    func addOneToTeamTwo() {
+        scoreTeamTwo += 1
+        print("Прибавка 1 второй команде от кнопки Команда 2 ")
+    }
     func teamChanging() {
         if teamId == "TeamOne" {
             teamId = "TeamTwo"
@@ -132,7 +136,12 @@ class GameViewController: UIViewController {
             updateWordsSet()
             addUpScore()
             soundManager.playSound(soundName: "right")
-        } else {
+        }else if sender.currentTitle == "Команда 1" {
+            // или эту
+            addOneToTeamOne()
+        }
+        
+        else {
             actionAddUpScore()
             rightButton.setTitle("Отгадали", for: .normal)
             rightButton.isHidden = true
@@ -146,7 +155,11 @@ class GameViewController: UIViewController {
             print(#function)
             updateWordsSet()
             soundManager.playSound(soundName: "wrong")
-        } else {
+        }else if sender.currentTitle == "Команда 2" {
+            // надо локать кнопку которую нажмут эту
+            addOneToTeamTwo()
+        }
+        else {
             substractAction()
             wrongButton.setTitle("Не отгадали", for: .normal)
             rightButton.isHidden = true
@@ -155,7 +168,6 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        // Надо скрыть кнопку сброса после смены команды,и почему вообще на кнопку сброса это должно происходить..
         soundManager.playSound(soundName: "button")
         
         if choiceActionAnswer == "Да" {
