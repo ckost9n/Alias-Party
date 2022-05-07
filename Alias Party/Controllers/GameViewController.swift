@@ -21,6 +21,7 @@ class GameViewController: UIViewController {
     var teamId = "TeamTwo"
     var scoreTeamOne = 0
     var scoreTeamTwo = 0
+    
     var timer = Timer()
     var secondsRemaining = 3
     var questionBrain: WordsBrain?
