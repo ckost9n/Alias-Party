@@ -48,10 +48,10 @@ class ChoiceViewController: UIViewController {
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         switch choiceAction {
-        case "Один": choiceActionEnum = .one
-        case "Два": choiceActionEnum = .two
-        case "Три": choiceActionEnum = .three
-        case "Четыре": choiceActionEnum = .four
+        case ActionEnum.one.rawValue: choiceActionEnum = .one
+        case ActionEnum.two.rawValue: choiceActionEnum = .two
+        case ActionEnum.three.rawValue: choiceActionEnum = .three
+        case ActionEnum.four.rawValue: choiceActionEnum = .four
         default:
             choiceActionEnum = .one
         }
