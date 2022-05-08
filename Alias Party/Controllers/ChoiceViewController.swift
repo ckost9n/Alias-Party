@@ -9,7 +9,7 @@ import UIKit
 
 class ChoiceViewController: UIViewController {
     var soundManager = SoundManager()
-
+    
     @IBOutlet var buttonChoiceCollection: [UIButton]!
     
     private var choiceAction = ""
@@ -17,7 +17,7 @@ class ChoiceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViews()
         
     }
@@ -38,16 +38,8 @@ class ChoiceViewController: UIViewController {
     }
     
     @IBAction func choiceButtonPressed(_ sender: UIButton) {
-        for button in buttonChoiceCollection {
-            button.isSelected = false
-        }
-        
-        sender.isSelected = true
+ 
         choiceAction = sender.currentTitle ?? ""
-        print(choiceAction)
-    }
-    
-    @IBAction func doneButtonPressed(_ sender: UIButton) {
         switch choiceAction {
         case ActionEnum.one.rawValue: choiceActionEnum = .one
         case ActionEnum.two.rawValue: choiceActionEnum = .two
@@ -56,9 +48,8 @@ class ChoiceViewController: UIViewController {
         default:
             choiceActionEnum = .one
         }
-        
+        print(choiceAction)
         performSegue(withIdentifier: "goToGameVC", sender: self)
-        soundManager.playSound(soundName: "button")
     }
     
 }
