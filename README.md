@@ -1,3 +1,7 @@
+![Image alt](https://github.com/https://github.com/ckost9n/Alias-Party/blob/main/testImage.png)
+
+
+
 # Alias-Party by team:
     
     1. Андрей - парсинг, создание моделей и некоторая логика приложения. 
