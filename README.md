@@ -1,4 +1,4 @@
-![Image alt](https://raw.githubusercontent.com/ckost9n/Alias-Party/main/testImage.png?token=GHSAT0AAAAAABUE6ZS6E4DKAKDFJUMYVPDSYTXNULA)
+![Image alt](https://github.com/ckost9n/Alias-Party/blob/main/testImage.png?raw=true)
 
 
 
