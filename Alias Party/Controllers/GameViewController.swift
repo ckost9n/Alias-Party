@@ -12,7 +12,7 @@ import AudioToolbox
 class GameViewController: UIViewController {
     
     var soundManager = SoundManager()
-    
+    var roundCount = 0
     var some = ActionList()
     var word = ""
     var choiceActionAnswer = ""
@@ -93,7 +93,7 @@ class GameViewController: UIViewController {
         timerLabel.isHidden = true
         wordLabel.isHidden = true
         timerLabel.text = String(secondsRemaining)
-        navigationItem.title = "Alfa"
+        navigationItem.title = "Команда №1"
         navigationItem.hidesBackButton = true
         nextRoundButton.isHidden = true
         rightButton.isHidden = true
@@ -123,7 +123,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func wrongButtonPressed(_ sender: UIButton) {
-        if sender.currentTitle == "Не отгадали" {
+        if sender.currentTitle == "Пропустить" {
             print(#function)
             updateWordsSet()
             soundManager.playSound(soundName: "wrong")
@@ -163,6 +163,7 @@ class GameViewController: UIViewController {
     
     
     @IBAction func startButtonAction(_ sender: UIButton) {
+        roundCount += 1
         timerLabel.isHidden = false
         wordLabel.isHidden = false
         
@@ -171,10 +172,15 @@ class GameViewController: UIViewController {
             createTimer()
             
         } else if sender.currentTitle == "Следующий раунд" {
+            if roundCount % 2 == 0 {
+                navigationItem.title = "Команда №2"
+            } else {
+                navigationItem.title = "Команда №1"
+            }
             
             startButton.isHidden = true
             rightButton.setTitle("Отгадали", for: .normal)
-            wrongButton.setTitle("Не отгадали", for: .normal)
+            wrongButton.setTitle("Пропустить", for: .normal)
             createTimer()
         }
         
