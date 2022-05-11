@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 class ResultViewController: UIViewController {
-    
+    var sum = 0
     
     var soundManager = SoundManager()
     var jokeManager = JokeManager()
