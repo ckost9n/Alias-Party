@@ -10,16 +10,15 @@ import AVFoundation
 
 class ResultViewController: UIViewController {
     
-    var soundManager = SoundManager()
     
+    var soundManager = SoundManager()
     var jokeManager = JokeManager()
     
     var teamOneScoreInt = 0
     var teamTwoSCoreInt = 0
-
-   @IBOutlet var teamOneScore: UILabel!
-    @IBOutlet var teamTwoScore: UILabel!
     
+    @IBOutlet var teamOneScore: UILabel!
+    @IBOutlet var teamTwoScore: UILabel!
     @IBOutlet var jokeLabel: UILabel!
     
     override func viewDidLoad() {
@@ -27,9 +26,7 @@ class ResultViewController: UIViewController {
         teamOneScore.text = String(teamOneScoreInt)
         teamTwoScore.text = String(teamTwoSCoreInt)
         
-
         setupViews()
-        
     }
     
     private func setupViews() {
@@ -62,7 +59,7 @@ extension ResultViewController: JokeManagerDelegate {
     func didUpdateJoke(joke: JokeModel, punchline: JokeModel) {
         
         DispatchQueue.main.async {
-        
+            
             self.jokeLabel.text = joke.setup
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
                 
@@ -70,7 +67,6 @@ extension ResultViewController: JokeManagerDelegate {
                 self.soundManager.playSound(soundName: "jokeDrum1")
                 
             }
-            
         }
     }
 }
